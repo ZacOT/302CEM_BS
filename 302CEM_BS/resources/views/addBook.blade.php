@@ -16,5 +16,5 @@
   <label for="img">Select image:</label>
   <input type="file" id="img" name="book_cover_img" accept="image/*">
 
-  <button type="submit"  value = "Add student" class="btn btn-primary">Submit</button>
+  <button type="submit"  value = "add book" class="btn btn-primary">Submit</button>
 </form>
