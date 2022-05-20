@@ -23,13 +23,13 @@ div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:left;}
 
 /*----------------------------------------------Header-------------------------------------*/
 
-#header{padding: 20px 0;}
-#header #hgroup{float:left; margin:0 0 20px 0;}
+#header{padding: 20px 10px 10px 10px ;}
+#header #hgroup{float:left; margin:0 0 20px 0; margin-left: 5%;}
 #header #hgroup h1, #header #hgroup h2{font-weight:normal; text-transform:none;}
 
 #header nav{display:block; float:right; margin:10px 0 0 0; padding:20px 0; color: black; background-color:#F09090;}
 #header nav ul{padding:0 100px;}
-#header nav li{display:inline; margin-right:25px; text-transform:uppercase;}
+#header nav li{display:inline; margin-right:30px; text-transform:uppercase;}
 #header nav li.last{margin-right:0;}
 #header nav li a{color:black; background-color:#F09090;} /*Header color for the text links*/
 #header nav li a:hover{color:#e43939; background-color:white;}
