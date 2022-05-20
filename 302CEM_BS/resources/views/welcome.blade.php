@@ -1,5 +1,7 @@
 
  @include('header')
+
+ <title>Homepage @yield('title')</title>
     
         <!-- Content Section -->
 

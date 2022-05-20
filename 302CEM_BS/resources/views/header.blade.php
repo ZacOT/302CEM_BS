@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <link rel="stylesheet" href="<?php echo asset('css/homepage.css')?>" type="text/css"> 
+<link rel="icon" href="{!! asset('images/book_logo.png') !!}"/>
+
 
     <!-- Header -->
 
@@ -11,7 +13,7 @@
             <table border="0" width="830px">
                 <tr>
                     <td align="center">
-                        <img src='images/book_logo.png' height='80' width='80'>
+                        <a href="/"><img src='images/book_logo.png' height='80' width='80'></a>
                     </td>
                     <td>
                         <h1>Online Book Store </h1>
