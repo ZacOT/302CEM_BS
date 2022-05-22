@@ -5,10 +5,12 @@
     <link rel="stylesheet" href="<?php echo asset('css/cart.css')?>" type="text/css"> 
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900" rel="stylesheet">
 </head>
+
 <body>
    <div class='CartContainer'>
    	   <div class='Header'>
    	   	<h3 class='Heading'>Shopping Cart</h3>
+		<a href="/">Back To Home</a>
    	   	<h5 class='Action'>Remove all</h5>
    	   </div>
 
@@ -18,7 +20,7 @@
    	   	  </div>
    	   	  <div class='about'>
    	   	  	<h1 class='title'>13 Reason Why</h1>
-   	   	  	<h3 class='subtitle'>You is the reason why</h3>
+   	   	  	<h3 class='subtitle'>You are the reason why</h3>
    	   	  </div>
    	   	  <div class='counter'>
    	   	  	<div class='btn'>+</div>
@@ -32,16 +34,18 @@
    	   	  </div>
    	   </div>
     
-   	 <hr> 
-   	 <div class='checkout'>
-   	 <div class='total'>
-   	 	<div>
-   	 		<div class='Subtotal'>Sub-Total</div>
-   	 		<div class='items'>2 items</div>
-   	 	</div>
-   	 	<div class='total-amount'>$11.98</div>
-   	 </div>
-   	 <button class='button'>Checkout</button></div>
-   </div>
+	<hr>
+	<br><br>
+
+	<div class='checkout'>
+	<div class='total'>
+	<div>
+		<div class='Subtotal'>Sub-Total</div>
+		<div class='items'>2 items</div>
+	</div>
+	<div class='total-amount'>$11.98</div>
+	</div>
+	<button class='button'>Checkout</button></div>
+</div>
 </body>
 </html>

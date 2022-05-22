@@ -14,7 +14,7 @@
                     <h1>Online Book Store </h1>
                 </td>
                 <td align="right">
-                    <a href="cart"><img src='images/cart_logo.png' height='40' width='40'></a>
+                    <a href="/cart"><img src='images/cart_logo.png' height='40' width='40'></a>
                 </td>
             </tr>
         </table>
