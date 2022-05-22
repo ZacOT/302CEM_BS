@@ -20,10 +20,14 @@ class BookController extends Controller
   
     public function insert(Request $request){
         $book_title = $request->input('book_title');
+        $book_author = $request->input('book_author');
+        $publication_date = $request->input('publication_date');
+        $isbn_13 = $request->input('ISBN_13');
         $book_description = $request->input('book_description');
-        $book_price = $request->input('book_price');
-        $book_stock = $request->input('book_stock');
         $book_cover_img = $request->input('book_cover_img');
+        $trade_price = $request->input('trade_price');
+        $retail_price = $request->input('retail_price');
+        $book_stock = $request->input('book_stock');
 
         $imageName = $request->book_cover_img->getClientOriginalName();
          
@@ -31,8 +35,12 @@ class BookController extends Controller
 
         $data=array(
             "book_title"=>$book_title,
+            "book_author"=>$book_author,
+            "publication_date"=>$publication_date,
+            "ISBN_13"=>$isbn_13,
             "book_description"=>$book_description, 
-            "book_price"=>$book_price,
+            "trade_price"=>$trade_price,
+            "retail_price"=>$retail_price,
             "book_stock"=>$book_stock,
             "book_cover_img"=>$imageName);
 
