@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username')->unique();
+            $table->string('username')->unique(); //Make sure username only exist in database once
             $table->string('password'); //Need Encrypt
             $table->string('name');
             $table->string('email')->unique();

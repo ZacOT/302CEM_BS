@@ -22,11 +22,11 @@
    	   	  </div>
    	   	  <div class='counter'>
    	   	  	<div class='btn'>+</div>
-   	   	  	<div class='count'>1</div>
+   	   	  	<div class='count'>2</div>
    	   	  	<div class='btn'>-</div>
    	   	  </div>
    	   	  <div class='prices'>
-   	   	  	<div class='amount'>$2.99</div>
+   	   	  	<div class='amount'>$11.98</div>
             <br/><br/><br/><br/><br/>
    	   	  	<div class='remove'><u>Remove</u></div>
    	   	  </div>
@@ -37,9 +37,9 @@
    	 <div class='total'>
    	 	<div>
    	 		<div class='Subtotal'>Sub-Total</div>
-   	 		<div class='items'>1 items</div>
+   	 		<div class='items'>2 items</div>
    	 	</div>
-   	 	<div class='total-amount'>$2.99</div>
+   	 	<div class='total-amount'>$11.98</div>
    	 </div>
    	 <button class='button'>Checkout</button></div>
    </div>

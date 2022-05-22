@@ -35,6 +35,11 @@ Route::get('/', function () {
     return view('welcome', compact('users'));
 });
 
+Route::get('/', function () {
+    $books = DB::table('carts')->select('username','ISBN_13','book_quantity', 'subtotal')->get();
+    return view('welcome', compact('carts'));
+});
+
 Route::get('/register', function () {
     return view('register');
 });

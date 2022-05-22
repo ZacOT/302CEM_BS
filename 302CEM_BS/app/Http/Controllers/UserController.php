@@ -13,14 +13,10 @@ class UserController extends Controller
         $users = DB::table('users')->get();
         return view('welcome',compact('users'));
     }
-
-    public function printOne(){
-        DB::table('users')->get(); 
-        return view('welcome');
-    }
   
     public function insert(Request $request){
         
+        // Validation for Form Database
         $this->validate($request, [
             'username' => 'required|max:255',
             'password' => 'required|confirmed',
