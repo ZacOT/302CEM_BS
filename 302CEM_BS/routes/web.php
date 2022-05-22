@@ -21,14 +21,24 @@ Route::get('/addBook', function () {
     return view('addBook');
 });
 
-Route::post('insert','App\Http\Controllers\BookController@insert')->name('insertUser');
-Route::post('/','App\Http\Controllers\BookController@printBook');
+// Route for User Database
+Route::post('insert','App\Http\Controllers\UserController@insert')->name('insertUser');
+Route::post('/','App\Http\Controllers\UserController@printUser');
 
 Route::get('/', function () {
     $books = DB::table('books')->select('book_title','book_price','book_cover_img')->get();
     return view('welcome', compact('books'));
 });
 
+Route::get('/', function () {
+    $books = DB::table('users')->select('username','password','name', 'email', 'address')->get();
+    return view('welcome', compact('users'));
+});
+
 Route::get('/register', function () {
     return view('register');
+});
+
+Route::get('/cart', function () {
+    return view('cart');
 });
