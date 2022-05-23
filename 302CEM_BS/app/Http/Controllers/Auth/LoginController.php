@@ -24,7 +24,7 @@ class LoginController extends Controller
             ->where('password', $request->password)
             ->first();
 
-        if($request) {
+        if($user) {
             Auth::login($user);
             return view('/');
         }

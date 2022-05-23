@@ -6,22 +6,30 @@
     @if (session('status'))
         <p style="text-align:center;">{{ session('status') }}</p>
     @endif
-    <div class="loginframe" style="background-image:url('images/openbook.png');">
-        <!--Sign Up Link-->
-        <span><div>
-            <a href>Sign Up here</a>
-        </div></span>
+    <div class="container">
         <!--Login Form-->
-        <span><div>
-            <form action="{{ route('login') }}" method="post"> 
+        <div>
+            <form action="{{ route('login') }}" method="post" class="form-group"> 
                 @csrf
-                <p><input type="text" name="username" placeholder="Username" id="username" required\></p>
+                    <input type="text" name="username" placeholder="Username" id="username" required\>
+                    @error('username')
+                    <div class="error">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                    <br>
+                    <input type="text" name="password" placeholder="Password" id="password" required\>
+                    @error('password')
+                    <div class="error">
+                        {{ $message }}
+                    </div>
+                     @enderror
+                     <br>
+                    <button type="submit" class="login" name="login_submit">Login</button><br><br>
 
-                <p><input type="text" name="password" placeholder="Password" id="password" required\></p>   
-
-                <p><button type="submit" class="login" name="login_submit">Login</button></p>
+                    <a href>Sign Up here</a>
             </form>
-        </div></span>
+        </div>
     </div>
 
 </html>
