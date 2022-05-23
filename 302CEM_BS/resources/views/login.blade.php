@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
 <link rel="stylesheet" href="<?php echo asset('css/login.css')?>" type="text/css"> 
 
+@include('header')
     <h1 style="text-align:center;">Login Page</h1>
     @if (session('status'))
         <p style="text-align:center;">{{ session('status') }}</p>
@@ -27,9 +28,9 @@
                      <br>
                     <button type="submit" class="login" name="login_submit">Login</button><br><br>
 
-                    <a href>Sign Up here</a>
+                    <a href="register">Sign Up here</a>
             </form>
         </div>
     </div>
-
+    @include('footer')
 </html>

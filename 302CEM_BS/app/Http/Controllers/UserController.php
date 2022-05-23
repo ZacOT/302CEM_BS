@@ -41,7 +41,7 @@ class UserController extends Controller
 
         DB::table('users')->insert($data);
             
-        return redirect()-> route('/login');
+        return redirect()-> route('login');
 
         }
 }
