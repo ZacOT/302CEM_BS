@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('books', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username')->unique(); //Make sure username only exist in database once
-            $table->string('password'); //Need Encrypt
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('address');
-            $table->rememberToken();
+            $table->string('book_title')->unique();
+            $table->string('book_description');
+            $table->double('book_price');
+            $table->integer('book_stock');
+            $table->binary('book_cover_img');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('books');
     }
 };

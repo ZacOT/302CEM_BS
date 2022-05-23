@@ -1,0 +1,62 @@
+
+body{margin:0; padding:0; font-size:13px; font-family:Georgia, "Arial", Times, serif; color:black; background-color:#FFFFFF;}
+
+nav ul{margin:0; padding:0; list-style:none;}
+
+.clear:after{content:"."; display:block; height:0; clear:both; visibility:hidden; line-height:0;}
+.clear{display:block; clear:both;}
+html[xmlns] .clear{display:block;}
+* html .clear{height:1%;}
+
+/* ----------------------------------------------Wrapper-------------------------------------*/
+
+div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:left;}
+
+.row1, .row1 a{color:rgb(255, 255, 255); background-color:#de4e4e;} /*Header banner*/
+.row2{color: black; background-color:#F09090;} /*Home page background color*/
+.row2 a{color:black; background-color:#F09090;}
+.row3, .row3 a{color:black; background-color:#de4e4e;}
+
+/*----------------------------------------------Generalise-------------------------------------*/
+
+#header, #container, #footer{display:block; width:960px; margin:0 auto;}
+
+/*----------------------------------------------Header-------------------------------------*/
+
+#header{padding:20px 0;}
+#header #hgroup{float:left; margin:0 0 20px 0;}
+#header #hgroup h1, #header #hgroup h2{font-weight:normal; text-transform:none;}
+
+#header nav{display:block; float:right; margin:10px 0 0 0; padding:20px 0; color: black; background-color:#F09090;}
+#header nav ul{padding:0 100px;}
+#header nav li{display:inline; margin-right:25px; text-transform:uppercase;}
+#header nav li.last{margin-right:0;}
+#header nav li a{color:black; background-color:#F09090;} /*Header color for the text links*/
+#header nav li a:hover{color:#e43939; background-color:white;}
+
+* {
+    box-sizing: border-box;
+  }
+
+/* Add padding to containers */
+.container {padding: 16px; background-color: white; color: black;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {width: 50%; padding: 15px; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;}
+input[type=text]:focus, input[type=password]:focus {background-color: #ddd; outline: none;}
+
+/* Overwrite default styles of hr */
+hr {border: 1px solid #f1f1f1; margin-bottom: 25px;}
+  
+/* Set a style for the submit button */
+.registerbtn {background-color: #de4e4e; color: white; padding: 16px 20px; margin: 8px 0; border: none; cursor: pointer; width: 50%; opacity: 0.9;}
+.registerbtn:hover {opacity: 1;}
+
+/* Add a blue text color to links */
+a {color: dodgerblue;}
+p {color: black;}
+
+/* Set a grey background color and center the text of the 'sign in' section */
+.signin {background-color: #f1f1f1; text-align: center;}
+
+.error {color: #ff0000; text-align: center;}

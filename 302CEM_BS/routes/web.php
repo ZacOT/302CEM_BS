@@ -21,6 +21,36 @@ Route::post('insert','App\Http\Controllers\BookController@insert')->name('insert
 Route::post('/','App\Http\Controllers\BookController@printBook');
 
 Route::get('/', function () {
+    return view('welcome');
+});
+
+// Route for User Database
+Route::post('insert','App\Http\Controllers\UserController@insert')->name('insertUser');
+Route::post('/','App\Http\Controllers\UserController@printUser');
+
+Route::get('/', function () {
+    $books = DB::table('books')->select('book_title','book_price','book_cover_img')->get();
+    return view('welcome', compact('books'));
+});
+
+Route::get('/', function () {
+    $books = DB::table('users')->select('username','password','name', 'email', 'address')->get();
+    return view('welcome', compact('users'));
+});
+
+Route::get('/', function () {
+    $books = DB::table('carts')->select('username','ISBN_13','book_quantity', 'subtotal')->get();
+    return view('welcome', compact('carts'));
+});
+
+Route::get('/register', function () {
+    return view('register');
+});
+
+Route::get('/cart', function () {
+    return view('cart');
+});
+
     $books = DB::table('books')->select('book_title','retail_price','book_cover_img')->get();
     return view('welcome', compact('books'));
 });

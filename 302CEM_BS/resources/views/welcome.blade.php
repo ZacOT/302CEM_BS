@@ -1,5 +1,4 @@
-
- @include('header')
+@include('header')
 
  <title>Homepage @yield('title')</title>
     
