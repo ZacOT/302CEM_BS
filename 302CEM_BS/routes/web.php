@@ -25,7 +25,7 @@ Route::get('/', function () {
 });
 
 // Route for User Database
-Route::post('insert','App\Http\Controllers\UserController@insert')->name('insertUser');
+Route::post('insertUser','App\Http\Controllers\UserController@insert')->name('insertUser');
 Route::post('/','App\Http\Controllers\UserController@printUser');
 
 Route::get('/', function () {
