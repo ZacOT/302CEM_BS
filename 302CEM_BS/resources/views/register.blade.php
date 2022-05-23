@@ -4,38 +4,7 @@
       
     <!-- Header -->
 
-    <header id="header" class="clear">
-        <table border="0" width="830px">
-            <tr>
-                <td align="center">
-                    <img src='images/book_logo.png' height='80' width='80'>
-                </td>
-                <td>
-                    <h1>Online Book Store </h1>
-                </td>
-                <td align="right">
-                    <a href="/cart"><img src='images/cart_logo.png' height='40' width='40'></a>
-                </td>
-            </tr>
-        </table>
-    </header>
-
-    <div class="wrapper row1">
-        <header id="header" class="clear">
-            <div id="hgroup">
-            <nav>
-                    <ul>
-                    <li><a href='/'>Home</a></li>
-                    <li><a href=''>Purchase History</a></li>
-                    <li><a href=''>Setting</a></li>
-                    <li><a href='addBook'>Admin Page</a></li>
-                    <li><a href='register'>Register</a></li>
-                    <li class='last'><a href='login'>Login</a></li>
-                    </ul>
-            </nav>
-            </div>
-        </header>
-    </div>
+    @include('header')
 
     <br/><br/>
 
@@ -49,7 +18,7 @@
             <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>"><input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 
             <input type="text" class="form-control" placeholder="Username" name="username">
-
+php 
             @error('username')
                     <div class="error">
                         {{ $message }}
@@ -112,5 +81,6 @@
         </form>
     </div>
 
+    @include('footer')
 
 </html>
