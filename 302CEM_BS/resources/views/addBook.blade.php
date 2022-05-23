@@ -4,7 +4,7 @@
 
 <h1>Add a Book</h1>
 
-<form action = "{{route('insertUser')}}" method = "post" class="form-group" action="/addBook" enctype="multipart/form-data">
+<form action = "{{route('insertBook')}}" method = "post" class="form-group" action="/addBook" enctype="multipart/form-data">
 
 <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>"><input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 

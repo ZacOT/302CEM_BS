@@ -17,7 +17,7 @@ Route::get('/addBook', function () {
     return view('addBook');
 });
 
-Route::post('insert','App\Http\Controllers\BookController@insert')->name('insertUser');
+Route::post('insertBook','App\Http\Controllers\BookController@insert')->name('insertBook');
 Route::post('/','App\Http\Controllers\BookController@printBook');
 
 Route::get('/', function () {
