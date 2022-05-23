@@ -1,5 +1,8 @@
 @include('header')
 
+<title>Login @yield('title')</title>
+
+
 <body>
 <link rel="stylesheet" href="<?php echo asset('css/login.css')?>" type="text/css"> 
     <h1 style="text-align:center;">Login Page</h1>
