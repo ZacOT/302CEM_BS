@@ -26,7 +26,7 @@ class LoginController extends Controller
 
         if($user) {
             Auth::login($user);
-            return view('/');
+            return redirect('/');
         }
 
         return back()->with('status', 'User does not exist');

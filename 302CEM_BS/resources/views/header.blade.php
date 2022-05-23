@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="<?php echo asset('css/homepage.css')?>" type="text/css"> 
 <link rel="icon" href="{!! asset('images/book_logo.png') !!}"/>
 
-
+<head>
     <!-- Header -->
 
     <div class="wrapper row1">
@@ -43,3 +43,4 @@
             </header>
         </div>
 </center>
+</head>
