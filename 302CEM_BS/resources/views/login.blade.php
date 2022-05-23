@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <link rel="stylesheet" href="<?php echo asset('css/login.css')?>" type="text/css"> 
 
-    <h1 style="text-align:center;">Login Page 1</h1>
+    <h1 style="text-align:center;">Login Page</h1>
     @if (session('status'))
         <p style="text-align:center;">{{ session('status') }}</p>
     @endif
