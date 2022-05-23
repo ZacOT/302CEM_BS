@@ -18,7 +18,7 @@
             <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>"><input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 
             <input type="text" class="form-control" placeholder="Username" name="username">
-php 
+            
             @error('username')
                     <div class="error">
                         {{ $message }}
