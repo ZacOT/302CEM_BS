@@ -7,7 +7,7 @@
         if(Auth::user()){
         $username = Auth::user()->username;
 
-        echo"Welcome Back, $username ";
+        echo"<h3><center> Welcome Back, $username </h3><center> ";
         }
         ?> 
     
@@ -28,8 +28,11 @@
                     <h4> {{ $book->book_title }} </h4>         
                     <h4>Price: {{ $book->retail_price }} </h4>
 
-                    <button> Add To Cart </button>
-                     
+                <?php 
+                if(Auth::user()){
+                    echo" <button> Add To Cart </button> ";
+                }
+                ?> 
                     </center>          
                 </div>
 
