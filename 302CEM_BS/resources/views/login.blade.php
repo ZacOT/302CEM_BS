@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<link rel="stylesheet" href="<?php echo asset('css/login.css')?>" type="text/css"> 
-
 @include('header')
+
+<body>
+<link rel="stylesheet" href="<?php echo asset('css/login.css')?>" type="text/css"> 
     <h1 style="text-align:center;">Login Page</h1>
     @if (session('status'))
         <p style="text-align:center;">{{ session('status') }}</p>
@@ -32,5 +31,5 @@
             </form>
         </div>
     </div>
-    @include('footer')
-</html>
+</body>
+@include('footer')
