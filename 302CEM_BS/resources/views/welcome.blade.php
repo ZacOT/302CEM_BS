@@ -1,10 +1,21 @@
 @include('header')
 
  <title>Homepage @yield('title')</title>
+
+        <?php 
+
+        if(Auth::user()){
+        $username = Auth::user()->username;
+
+        echo"Welcome Back, $username ";
+        }
+        ?> 
     
         <!-- Content Section -->
 
         <h1 style="text-align: center;">Books</h1>
+
+
         <br/>
 
         <div class="wrapper-bookrow">

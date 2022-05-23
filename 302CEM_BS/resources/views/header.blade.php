@@ -36,7 +36,8 @@
                         <li><a href=''>Setting</a></li>
                         <li><a href='addBook'>Admin Page</a></li>
                         <li><a href='register'>Register</a></li>
-                        <li class='last'><a href='login'>Login</a></li>
+                        <li><a href='login'>Login</a></li>
+                        <li class='last'><a href='logout'>Logout</a></li>
                         </ul>
                 </nav>
               </div>
