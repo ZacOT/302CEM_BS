@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,10 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/addBook', function () {
     return view('addBook');
@@ -28,3 +24,7 @@ Route::get('/', function () {
     $books = DB::table('books')->select('book_title','retail_price','book_cover_img')->get();
     return view('welcome', compact('books'));
 });
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'validateLogin']);
+
+Route::get('/logout', [LoginController::class, 'logout']);
