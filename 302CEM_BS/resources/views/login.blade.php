@@ -5,7 +5,10 @@
 
 <body>
 <link rel="stylesheet" href="<?php echo asset('css/login.css')?>" type="text/css"> 
-    <h1 style="text-align:center;">Login Page</h1>
+    
+    <br><br>
+
+    <h1 style="text-align:center;">Login Page</h1> 
     @if (session('status'))
         <p style="text-align:center;">{{ session('status') }}</p>
     @endif
@@ -28,7 +31,7 @@
                     </div>
                      @enderror
                      <br>
-                    <button type="submit" class="login" name="login_submit">Login</button><br><br>
+                    <button type="submit" name="login_submit" class='registerbtn'>Login</button><br><br>
 
                     <a href="register">Sign Up here</a>
             </form>

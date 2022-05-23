@@ -24,7 +24,7 @@ div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:left;}
 /*----------------------------------------------Header-------------------------------------*/
 
 #header{padding: 20px 10px 10px 10px ;}
-#header #hgroup{float:left; margin:0 0 20px 0; margin-left:0%;}
+#header #hgroup{float:left; margin:0 0 20px 0; margin-left:0%; width: 90%; height: 90%;}
 #header #hgroup h1, #header #hgroup h2{font-weight:normal; text-transform:none;}
 
 #header nav{display:block; float:right; margin:20px 0 0 0; padding:20px 0; color: black; background-color:#F09090;}
@@ -42,4 +42,11 @@ div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:left;}
     margin-right: 150px;
     grid-auto-rows: 300px;
     justify-content: center;
+  }
+
+  .welcomeMsg {
+    align-content: right;
+    padding: 25px 50px 0px 0px;
+    margin-left: 80%;    
+
   }

@@ -1,15 +1,6 @@
 @include('header')
 
  <title>Homepage @yield('title')</title>
-
-        <?php 
-
-        if(Auth::user()){
-        $username = Auth::user()->username;
-
-        echo"<h3><center> Welcome Back, $username </h3><center> ";
-        }
-        ?> 
     
         <!-- Content Section -->
 
@@ -38,4 +29,13 @@
 
                 @endforeach
         </div>
+
+        <script>
+        var msg = '{{Session::get('alert')}}';
+        var exist = '{{Session::has('alert')}}';
+        if(exist){
+          alert(msg);
+        }
+      </script>
+
 @include('footer')

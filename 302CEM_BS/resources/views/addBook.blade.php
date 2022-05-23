@@ -4,7 +4,9 @@
 
 <title>Add Book @yield('title')</title>
 
-<h1 style="text-align: center;">Books</h1>
+<br><br>
+
+<h1 style="text-align: center;">Add New Books</h1>
 
 <form action = "{{route('insertBook')}}" method = "post" class="form-group" action="/addBook" enctype="multipart/form-data">
 
@@ -34,10 +36,12 @@
 
   <br><br>
 
-  <button type="submit"  value = "add book" class="btn btn-primary">Submit</button>
+  <button type="submit"  value = "add book" class='registerbtn'>Submit Add Book</button>
 
   <br><br>
 
 </form>
 
 </center>
+
+@include('footer')
