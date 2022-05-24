@@ -16,8 +16,8 @@ class CartsSeeder extends Seeder
      */
     public function run()
     {
-        // Carts Seeder Template
-        /*DB::table('carts')->insert([
+        /*Carts Seeder Template
+        DB::table('carts')->insert([
             'username'=>'',
             'ISBN_13'=>'',
             'book_quantity'=>'',

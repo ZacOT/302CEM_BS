@@ -1,6 +1,7 @@
 @include('header')
 
  <title>Homepage @yield('title')</title>
+ <script src="{{url('js/cart.js')}}"></script>
     
         <!-- Content Section -->
 
@@ -17,7 +18,8 @@
                     <h4> {{ $book->book_title }} </h4>              
                     <h4>Price: {{ $book->retail_price }} </h4>
 
-                    <button> Add To Cart </button>
+
+                    <button onclick="addToCart(item1)> Add To Cart </button>
                      
                     </center>          
                 </div>
