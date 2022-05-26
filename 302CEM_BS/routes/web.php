@@ -30,11 +30,9 @@ Route::get('/addBook', function () {
     return view('addBook');
 });
 
-<<<<<<< Updated upstream
-Route::post('insert','App\Http\Controllers\BookController@insert')->name('insertUser');
-Route::post('/','App\Http\Controllers\BookController@printBook');
-=======
->>>>>>> Stashed changes
+Route::get('/cart', function () {
+    return view('cart');
+});
 
 // Route for Login & Logout
 
@@ -43,8 +41,7 @@ Route::post('/login', [LoginController::class, 'validateLogin']);
 
 Route::get('/logout', [LogoutController::class, 'logout']);
 
-// Route for Register
-
+// Route for User Database
 Route::post('insertUser','App\Http\Controllers\UserController@insert')->name('insertUser');
 Route::post('/','App\Http\Controllers\UserController@printUser');
 
@@ -72,11 +69,3 @@ Route::get('/', function () {
     $books = DB::table('books')->select('book_title','retail_price','book_cover_img')->get();
     return view('welcome', compact('books'));
 });
-
-<<<<<<< Updated upstream
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'validateLogin']);
-
-Route::get('/logout', [LoginController::class, 'logout']);
-=======
->>>>>>> Stashed changes

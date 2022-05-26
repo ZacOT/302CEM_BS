@@ -49,6 +49,6 @@ class BookController extends Controller
         echo "Record inserted successfully.<br/>";
         echo '<a href = "/">Click Here</a> to go back.';
 
-            }
+        }
 }
 

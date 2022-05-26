@@ -16,15 +16,6 @@ class CartsSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< Updated upstream
-        /*Carts Seeder Template
-        DB::table('carts')->insert([
-            'username'=>'',
-            'ISBN_13'=>'',
-            'book_quantity'=>'',
-            'subtotal'=>'',
-        ]);*/
-=======
         // Carts Seeder Template
         DB::table('carts')->insert([
             'username'=>'admin',
@@ -32,6 +23,5 @@ class CartsSeeder extends Seeder
             'book_quantity'=>'2',
             'subtotal'=>'10',
         ]);
->>>>>>> Stashed changes
     }
 }
