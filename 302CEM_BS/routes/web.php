@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\Logout;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,10 @@ use App\Http\Controllers\Auth\LogoutController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/admin', function () {
+    return view('admin');
+});
 
 Route::get('/addBook', function () {
     return view('addBook');
@@ -29,11 +33,6 @@ Route::get('/', function () {
 // Route for User Database
 Route::post('insertUser','App\Http\Controllers\UserController@insert')->name('insertUser');
 Route::post('/','App\Http\Controllers\UserController@printUser');
-
-Route::get('/', function () {
-    $books = DB::table('books')->select('book_title','book_price','book_cover_img')->get();
-    return view('welcome', compact('books'));
-});
 
 Route::get('/', function () {
     $books = DB::table('users')->select('username','password','name', 'email', 'address')->get();

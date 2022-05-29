@@ -57,7 +57,7 @@
                         <li><a href='/'>Home</a></li>
                         <li><a href=''>Purchase History</a></li>
                         <li><a href=''>Setting</a></li>
-                        <li><a href='addBook'>Admin Page</a></li>
+                        <li><a href='admin'>Admin Page</a></li>
                         <li><a href='register'>Register</a></li>
                         
                         <?php 

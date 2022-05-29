@@ -1,6 +1,6 @@
 @include('header')
 
-<link rel="stylesheet" href="<?php echo asset('css/register.css')?>" type="text/css"> 
+<link rel="stylesheet" href="<?php echo asset('css/addBook.css')?>" type="text/css"> 
 
 <title>Add Book @yield('title')</title>
 
@@ -34,11 +34,12 @@
   <p><label for="img">Select image:</label>
   <input type="file" id="img" name="book_cover_img" accept="image/*"></p>
 
-  <br><br>
+  <br>
 
   <button type="submit"  value = "add book" class='registerbtn'>Submit Add Book</button>
 
-  <br><br>
+  <br><br>  <br><br>
+
 
 </form>
 
