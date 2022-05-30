@@ -11,12 +11,12 @@
 
         <tr align='center'>
             <td width='500px'>
-                <a href='/addBook'><img src='/images/add_logo.png'  height='75' width='75'></a>
+                <a href='/addBook'><img src='/images/add_logo.png'  height='65' width='65'></a>
                 <h1>Add Stock</h1>
             </td>
 
             <td width='500px'>
-                <a href='/logout'><img src='/images/logout_logo.png'  height='75' width='75'></a>
+                <a href='/logout'><img src='/images/logout_logo.png'  height='65' width='65'></a>
                 <h1>Logout</h1>
             </td>
         </tr>
