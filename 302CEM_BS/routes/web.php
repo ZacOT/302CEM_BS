@@ -42,11 +42,12 @@ Route::post('/login', [LoginController::class, 'validateLogin']);
 Route::get('/logout', [LogoutController::class, 'logout']);
 
 // Route for User Database
+
 Route::post('insertUser','App\Http\Controllers\UserController@insert')->name('insertUser');
 Route::post('/','App\Http\Controllers\UserController@printUser');
 
 Route::get('/', function () {
-    $books = DB::table('users')->select('username','password','name', 'email', 'address')->get();
+    $books = DB::table('users')->select('username','password', 'role', 'name', 'email', 'address')->get();
     return view('welcome', compact('users'));
 });
 
@@ -55,9 +56,9 @@ Route::get('/', function () {
 Route::post('insertCart','App\Http\Controllers\CartController@insert')->name('insertCart');
 Route::post('/','App\Http\Controllers\CartController@printCart');
 
-Route::get('/', function () {
+Route::get('/cart', function () {
     $carts = DB::table('carts')->select('username','ISBN_13','book_quantity', 'subtotal')->get();
-    return view('welcome', compact('carts'));
+    return view('cart', compact('carts'));
 });
 
 // Route for AddBook
@@ -66,6 +67,6 @@ Route::post('insertBook','App\Http\Controllers\BookController@insert')->name('in
 Route::post('/','App\Http\Controllers\BookController@printBook');
 
 Route::get('/', function () {
-    $books = DB::table('books')->select('book_title','retail_price','book_cover_img')->get();
+    $books = DB::table('books')->select('book_title','retail_price','book_cover_img', 'ISBN_13')->get();
     return view('welcome', compact('books'));
 });

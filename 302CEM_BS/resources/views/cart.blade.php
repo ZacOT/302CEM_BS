@@ -18,7 +18,6 @@
 			$book_quantity = array("1", "2"); 
 
 			// CSS is not compatible for more than 2 books
-			// Unable to fetch cart from database
 		?>
 
 		@foreach($carts as $cart)

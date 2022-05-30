@@ -20,6 +20,7 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert([
         'username'=>'admin',
         'password'=>'admin',
+        'role'=>'0',
         'name'=>'Store Admin',
         'email'=>'admin@bookstore.com',
         'address'=>'INTI Road Book Store 11900'
