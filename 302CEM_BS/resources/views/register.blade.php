@@ -61,6 +61,8 @@
                     </div>
             @enderror
 
+            <input type="text" class="form-control" name="role" value="1">
+
             <br>
             <input type="text" class="form-control" placeholder="Address" name="address">
 

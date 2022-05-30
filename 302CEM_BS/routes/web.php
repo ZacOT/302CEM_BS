@@ -35,7 +35,7 @@ Route::post('insertUser','App\Http\Controllers\UserController@insert')->name('in
 Route::post('/','App\Http\Controllers\UserController@printUser');
 
 Route::get('/', function () {
-    $books = DB::table('users')->select('username','password','name', 'email', 'address')->get();
+    $books = DB::table('users')->select('username','password','role','name', 'email', 'address')->get();
     return view('welcome', compact('users'));
 });
 

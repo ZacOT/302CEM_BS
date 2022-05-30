@@ -46,8 +46,7 @@ class BookController extends Controller
 
         DB::table('books')->insert($data);
             
-        echo "Record inserted successfully.<br/>";
-        echo '<a href = "/">Click Here</a> to go back.';
+        return redirect('/')->with('alert', 'Book added and updated successfully!');
 
             }
 }

@@ -23,11 +23,21 @@ class LoginController extends Controller
             $user = User::where('username', $request->username)
             ->where('password', $request->password)
             ->first();
-
+        
+            
         if($user) {
             Auth::login($user);
-            return redirect('/');
+
+            $role = Auth::user()->role;
+
+            if($role == 1){
+                return redirect('/');
+            }
+            if($role == 0){
+                return redirect('admin');
+            }
         }
+
 
         return back()->with('status', 'User does not exist');
             

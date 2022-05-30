@@ -1,6 +1,7 @@
 @include('header')
 
  <title>Homepage @yield('title')</title>
+
     
         <!-- Content Section -->
 
@@ -20,9 +21,16 @@
                     <h4>Price: {{ $book->retail_price }} </h4>
 
                 <?php 
-                if(Auth::user()){
-                    echo" <button> Add To Cart </button> ";
-                }
+                  if(Auth::user()){
+                    $role = Auth::user()->role;
+                    
+                      if($role == 1){
+                        echo" <button> Add To Cart </button> ";
+                        }
+                    }
+                                    
+ 
+
                 ?> 
                     </center>          
                 </div>

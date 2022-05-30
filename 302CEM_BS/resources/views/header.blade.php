@@ -56,18 +56,28 @@
                         
                         <ul>
                         <li><a href='/'>Home</a></li>
+
                         <li><a href=''>Purchase History</a></li>
-                        <li><a href=''>Setting</a></li>
+
+                        <?php 
+                        if(Auth::user() != NULL){
+                            $role = Auth::user()->role;
+                            if($role == 0){
+                                echo" <li><a href='admin'>Admin Page</a></li> "; }
+                            }
+                        ?>
+
                         <li><a href='register'>Register</a></li>
                         
                         <?php 
                         if(Auth::user() == NULL){
-                        echo" <li><a href='login'>Login </a></li> "; }
+                        echo" <li><a href='login'>Login</a></li> "; }
                         ?>
 
                         <?php 
                         if(Auth::user() != NULL){
-                        echo" <li class='last'><a href='logout'>Logout</a></li> "; }
+                        echo" <li class='last'><a href='logout'>Logout</a></li> ";}
+                     
                         ?>
 
                         </ul>

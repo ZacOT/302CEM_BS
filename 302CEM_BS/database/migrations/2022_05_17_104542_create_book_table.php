@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('book_title')->unique();
+            $table->string('book_title');
             $table->string('book_author');
             $table->date('publication_date');
-            $table->string('ISBN_13');
+            $table->string('ISBN_13')->unique();
             $table->string('book_description');
             $table->binary('book_cover_img');
             $table->double('trade_price');
