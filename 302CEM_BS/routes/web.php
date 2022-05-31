@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 
@@ -14,6 +15,9 @@ use App\Http\Controllers\Auth\LogoutController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('findBook','App\Http\Controllers\BookController@findBook')->name('findBook');
+
+Route::POST('updateBook','App\Http\Controllers\BookController@updateBook')->name('updateBook');
 
 Route::get('/admin', function () {
     return view('admin');

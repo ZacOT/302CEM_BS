@@ -16,6 +16,11 @@
             </td>
 
             <td width='500px'>
+                <a href='/'><img src='/images/stock_logo.png'  height='65' width='65'></a>
+                <h1>Stock Level</h1>
+            </td>
+
+            <td width='500px'>
                 <a href='/logout'><img src='/images/logout_logo.png'  height='65' width='65'></a>
                 <h1>Logout</h1>
             </td>

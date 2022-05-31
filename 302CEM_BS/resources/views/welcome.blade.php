@@ -2,7 +2,7 @@
 
  <title>Homepage @yield('title')</title>
 
-    
+    <html>
         <!-- Content Section -->
 
         <h1 style="text-align: center;">Books</h1>
