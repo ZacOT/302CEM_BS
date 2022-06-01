@@ -51,4 +51,3 @@ class BookController extends Controller
 
         }
 }
-

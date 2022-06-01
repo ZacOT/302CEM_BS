@@ -57,7 +57,7 @@ Route::post('insertCart','App\Http\Controllers\CartController@insert')->name('in
 Route::post('/','App\Http\Controllers\CartController@printCart');
 
 Route::get('/cart', function () {
-    $carts = DB::table('carts')->select('username','ISBN_13','book_quantity', 'subtotal')->get();
+    $carts = DB::table('carts')->select('username','ISBN_13','book_quantity')->get();
     return view('cart', compact('carts'));
 });
 

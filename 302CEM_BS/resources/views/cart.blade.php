@@ -14,31 +14,34 @@
    	   	<h5 class='Action'>Remove all</h5>
    	   </div>
 
-		<?php  
-			$book_quantity = array("1", "2"); 
-
-			// CSS is not compatible for more than 2 books
-		?>
 
 		@foreach($carts as $cart)
+			@php $books = DB::table('books')->where('ISBN_13', $cart->ISBN_13)->first(); @endphp
+			@if($username = Auth::user()->username)
 
-		<div class='Cart-Items'>
-			<div class='image-box'>
-					<img src="images/Book1.jpg" height='175' width='125'/>
-			</div>
-			<div class='about'>
-					<h1 class='title'>13 Reason Why</h1>
-					<h3 class='subtitle'>You are the reason why</h3>
-			</div>
-			<div class='counter'>
-					<div class='count'>{{ $cart->book_quantity }}</div>
-			</div>
-			<div class='prices'>
-					<div class='amount'>$11.98</div>
-					<br/><br/><br/><br/><br/>
-					<div class='remove'><u>Remove</u></div>
-			</div>
-		</div>
+				@if($cart->username === $username)
+					<?php $curisbn = $cart->ISBN_13; ?>
+				<div class='Cart-Items'>
+					<div class='image-box'>
+							<img src="images/{{ $books->book_cover_img }}" height='175' width='125'/>
+					</div>
+					<div class='about'>
+							<h1 class='title'>{{ $books->book_title }}</h1>
+							<h3 class='subtitle'>{{ $books->book_description }}</h3>
+					</div>
+					<div class='counter'>
+							<div class='count'>{{ $cart->book_quantity }}</div>
+					</div>
+					<div class='prices'>
+						@php $subtotal = $cart->book_quantity * $books->retail_price; @endphp
+							<div class='amount'>@php echo "$subtotal"; @endphp</div>
+							<br/><br/><br/><br/><br/>
+							<div class='remove'><u>Remove</u></div>
+					</div>
+				</div>
+ 
+				@endif
+			@endif
 
 		@endforeach
     

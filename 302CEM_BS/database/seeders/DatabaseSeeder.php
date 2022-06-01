@@ -21,5 +21,13 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CartsSeeder::class
         ]);
+
+        $this->call([
+            BooksSeeder::class
+        ]);
+
+        $this->call([
+            OrdersSeeder::class
+        ]);
     }
 }

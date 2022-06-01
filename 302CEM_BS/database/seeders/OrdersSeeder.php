@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class CartsSeeder extends Seeder
+class OrdersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,22 +17,12 @@ class CartsSeeder extends Seeder
     public function run()
     {
         // Carts Seeder Template
-        DB::table('carts')->insert([
+        DB::table('orders')->insert([
             'username'=>'admin',
+            'address'=>'INTI Road Book Store 11900',
             'ISBN_13'=>'BS1001',
             'book_quantity'=>'2',
-        ]);
-
-        DB::table('carts')->insert([
-            'username'=>'customer',
-            'ISBN_13'=>'BS1001',
-            'book_quantity'=>'1',
-        ]);
-
-        DB::table('carts')->insert([
-            'username'=>'customer',
-            'ISBN_13'=>'BS1002',
-            'book_quantity'=>'3',
+            'subtotal'=>'10',
         ]);
     }
 }

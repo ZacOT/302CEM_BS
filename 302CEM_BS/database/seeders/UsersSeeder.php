@@ -25,5 +25,14 @@ class UsersSeeder extends Seeder
         'email'=>'admin@bookstore.com',
         'address'=>'INTI Road Book Store 11900'
         ]);
+
+        DB::table('users')->insert([
+            'username'=>'customer',
+            'password'=>'customer',
+            'role'=>'1',
+            'name'=>'Store Customer',
+            'email'=>'customer@bookstore.com',
+            'address'=>'INTI College 11900'
+            ]);
     }
 }
