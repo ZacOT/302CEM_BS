@@ -71,8 +71,11 @@
     </div>
   @enderror
 
+  <br>
+
   <h3><label for="img">Update New image:</label>
-  <input type="file" id="img" name="book_cover_img" accept="image/*" value="{{ $book->book_cover_img }}"></p>
+  
+  <input type="file" id="img" name="book_cover_img" accept="image/*" value="{{ $book->book_cover_img }}"></h3>
 
   <br><br>
 

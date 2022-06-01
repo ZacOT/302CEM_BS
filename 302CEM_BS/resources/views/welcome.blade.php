@@ -14,29 +14,33 @@
         
                 @foreach($books as $book)
 
-                <div>
+                <div style="border-style:solid; height: min-content; padding-top:20px;">
                     <center>
                     <a href="book_cover"><img src=images/{{$book->book_cover_img}} height='250' width='150'></a>
                     <h4> {{ $book->book_title }} </h4>         
-                    <h4>Price: {{ $book->retail_price }} </h4>
-
+                    
                 <?php 
                   if(Auth::user()){
                     $role = Auth::user()->role;
                     
                       if($role == 1){
+                        echo" <h4>Retail Price: $book->retail_price </h4> ";
                         echo" <button> Add To Cart </button> ";
                         }
-                    }
-                                    
- 
 
+                      if($role == 0){
+                        echo" <h4>ISBN_13: $book->ISBN_13 </h4> ";
+                        echo" <h4>Stock Quantity: $book->book_stock </h4> ";
+
+                        }     
+                    }
                 ?> 
                     </center>          
-                </div>
+                    </div>
 
                 @endforeach
-        </div>
+
+                  </div>
 
         <script>
         var msg = '{{Session::get('alert')}}';

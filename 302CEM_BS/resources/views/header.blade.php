@@ -19,11 +19,18 @@
                     <td align="center">
                         <a href="/"><img src='images/book_logo.png' height='80' width='80'></a>
                     </td>
+
                     <td>
                         <h1>Online Book Store </h1>
                     </td>
+
+                    <td  align="center">
+                        <p><b>Total Price: $ </b></p>
+                    </td>
+
                     <td align="center">
-                        <a href="cart"><img src='images/cart_logo.png' height='40' width='40'></a>
+                        <a href="cart"><img src='images/cart_logo.png' height='40' width='40'></a> &nbsp;
+                        <span class='badge badge-warning' id='lblCartCount'> 5 </span>
                     </td>
                 </tr>
             </table>
