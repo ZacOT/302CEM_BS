@@ -26,9 +26,9 @@
                     <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
                     <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 
-                    <input type="hide" class="form-control" name="username" value="{{Auth::user()->username}}">
-                    <input type="hide" class="form-control" name="ISBN_13" value="{{$book->ISBN_13}}">
-                    <input type="hide" class="form-control" name="book_quantity" value="1">
+                    <input type="hidden" class="form-control" name="username" value="{{Auth::user()->username}}">
+                    <input type="hidden" class="form-control" name="ISBN_13" value="{{$book->ISBN_13}}">
+                    <input type="hidden" class="form-control" name="book_quantity" value="1">
 
                     <button type="submit">Add To Cart</button>
                     </form>

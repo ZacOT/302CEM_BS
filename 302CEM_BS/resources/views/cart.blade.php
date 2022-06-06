@@ -15,6 +15,9 @@
    	   </div>
 
 
+		@php $grandTotal = 0; @endphp
+		@php $totalQuantity = 0; @endphp
+
 		@foreach($carts as $cart)
 			@php $books = DB::table('books')->where('ISBN_13', $cart->ISBN_13)->first(); @endphp
 			@if($username = Auth::user()->username)
@@ -33,12 +36,15 @@
 							<div class='count'>{{ $cart->book_quantity }}</div>
 					</div>
 					<div class='prices'>
-						@php $subtotal = $cart->book_quantity * $books->retail_price; @endphp
-							<div class='amount'>@php echo "$subtotal"; @endphp</div>
+						@php $subTotal = $cart->book_quantity * $books->retail_price; @endphp
+							<div class='amount'>@php echo "$subTotal"; @endphp</div>
 							<br/><br/><br/><br/><br/>
 							<div class='remove'><u>Remove</u></div>
 					</div>
 				</div>
+
+				@php $grandTotal += $subTotal; @endphp
+				@php $totalQuantity += $cart->book_quantity; @endphp
  
 				@endif
 			@endif
@@ -52,9 +58,9 @@
 	<div class='total'>
 	<div>
 		<div class='Subtotal'>Sub-Total</div>
-		<div class='items'>2 items</div>
+		<div class='items'>@php echo "$totalQuantity"; @endphp items</div>
 	</div>
-	<div class='total-amount'>$11.98</div>
+	<div class='total-amount'>@php echo "$grandTotal"; @endphp</div>
 	</div>
 	<button class='button'>Checkout</button></div>
 </div>
