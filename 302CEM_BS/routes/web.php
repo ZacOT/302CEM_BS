@@ -34,6 +34,10 @@ Route::get('/cart', function () {
     return view('cart');
 });
 
+Route::get('/order', function () {
+    return view('order');
+});
+
 // Route for Login & Logout
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');

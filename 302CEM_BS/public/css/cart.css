@@ -13,6 +13,7 @@ body{
 	background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0px 10px 20px #1687d933;
+	overflow: scroll;
 }
 
 .Header{
