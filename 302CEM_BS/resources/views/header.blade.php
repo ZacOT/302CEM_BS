@@ -62,7 +62,18 @@
                 <nav>
                         
                         <ul>
-                        <li><a href='/'>Home</a></li>
+                        <?php 
+                        if(Auth::user() != NULL){
+                            $role = Auth::user()->role;
+                            if($role == 0){
+                                echo" <li><a href='/'>Stock Level</a></li> "; 
+                            }else{
+                                echo" <li><a href='/'>Home</a></li> ";
+                            }
+                        }else{
+                                echo" <li><a href='/'>Home</a></li> ";
+                            }
+                        ?>
 
                         <li><a href=''>Purchase History</a></li>
 
