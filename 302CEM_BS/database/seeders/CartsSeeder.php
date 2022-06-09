@@ -17,11 +17,22 @@ class CartsSeeder extends Seeder
     public function run()
     {
         // Carts Seeder Template
-        /*DB::table('carts')->insert([
-            'username'=>'',
-            'ISBN_13'=>'',
-            'book_quantity'=>'',
-            'subtotal'=>'',
-        ]);*/
+        DB::table('carts')->insert([
+            'username'=>'admin',
+            'ISBN_13'=>'BS1001',
+            'book_quantity'=>'2',
+        ]);
+
+        DB::table('carts')->insert([
+            'username'=>'customer',
+            'ISBN_13'=>'BS1001',
+            'book_quantity'=>'1',
+        ]);
+
+        DB::table('carts')->insert([
+            'username'=>'customer',
+            'ISBN_13'=>'BS1002',
+            'book_quantity'=>'3',
+        ]);
     }
 }

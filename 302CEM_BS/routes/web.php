@@ -49,8 +49,10 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/cart', function () {
-    return view('cart');
+Route::get('/order', function () {
+    $getcarts = DB::table('carts')->select('ISBN_13','book_quantity')->where('username', 'admin')->get();
+    $getbooks = DB::table('books')->get();
+    return view('orderpage', compact('getcarts'));
 });
 
 Route::get('/', function () {
