@@ -37,7 +37,7 @@ class BookController extends Controller
             return view('updateBook',compact('update'));
         }
     }
-        
+     
     }
 
     public function updateBook(Request $request){
@@ -107,9 +107,16 @@ class BookController extends Controller
             'book_stock' => 'required',
             ]);
 
-        $imageName = $request->book_cover_img->getClientOriginalName();
-         
-        $request->book_cover_img->move(public_path('images'), $imageName);
+            $fileName = null;
+            if($request->hasFile('book_cover_img')){
+            $photoFile = $request->file('book_cover_img');
+            $fileName = $photoFile->getClientOriginalName();
+            $request->book_cover_img->move(public_path('images'), $fileName);
+            //Storage::putFileAs('images',$photoFile, $fileName);
+        }
+           // $imageName = $request->book_cover_img->getClientOriginalName();
+           // $request->book_cover_img->move(public_path('images'), $imageName);
+    
 
         $data=array(
             "book_title"=>$book_title,
@@ -120,12 +127,13 @@ class BookController extends Controller
             "trade_price"=>$trade_price,
             "retail_price"=>$retail_price,
             "book_stock"=>$book_stock,
-            "book_cover_img"=>$imageName);
+            "book_cover_img"=>$fileName);
 
         DB::table('books')->insert($data);
             
         return redirect('/')->with('alert', 'Book added and updated successfully! ');
 
             }
+
 }
 
