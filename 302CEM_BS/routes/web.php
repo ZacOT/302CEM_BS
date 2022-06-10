@@ -91,7 +91,6 @@ Route::post('insertOrder','App\Http\Controllers\OrderController@insert')->name('
 Route::post('/','App\Http\Controllers\OrderController@printOrder');
 
 Route::get('/order', function () {
-    $orders = DB::table('orders')->select('username','address','ISBN_13','book_quantity','retail_price')->get();
     $carts = DB::table('carts')->where('username', Auth::user()->username)->get();
     $books = DB::table('books')->get();
     return view('order', compact('books', 'carts'));
