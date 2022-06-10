@@ -24,7 +24,6 @@
 
                     <form action = {{route("insertCart")}} method ='post' class='form-group' enctype='multipart/form-data' align='center'>
                     <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
-                    <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 
                     <input type="hidden" class="form-control" name="username" value="{{Auth::user()->username}}">
                     <input type="hidden" class="form-control" name="ISBN_13" value="{{$book->ISBN_13}}">
@@ -44,3 +43,11 @@
 </html>
 
 @include('footer')
+
+<script>
+        var msg = '{{Session::get('alert')}}';
+        var exist = '{{Session::has('alert')}}';
+        if(exist){
+          alert(msg);
+        }
+</script>

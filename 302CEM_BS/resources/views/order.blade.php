@@ -51,16 +51,17 @@
     
 	<hr>
 	<br><br>
+		<div class='checkout'>
+		<div class='total'>
+		<div>
+			<div class='Subtotal'>Sub-Total</div>
+			<div class='items'>@php echo "$totalQuantity"; @endphp items</div>
+		</div>
+		<div class='total-amount'>@php echo "$grandTotal"; @endphp</div>
+		</div>
+		<button class='button'>Confirm Order</button></div>
 
-	<div class='checkout'>
-	<div class='total'>
-	<div>
-		<div class='Subtotal'>Sub-Total</div>
-		<div class='items'>@php echo "$totalQuantity"; @endphp items</div>
-	</div>
-	<div class='total-amount'>@php echo "$grandTotal"; @endphp</div>
-	</div>
-	<button class='button'>Confirm Order</button></div>
+
 </div>
 </body>
 </html> 

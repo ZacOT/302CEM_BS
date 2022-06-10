@@ -13,7 +13,7 @@ class CartController extends Controller
         return view('welcome',compact('carts'));
     }
   
-    public function insert(Request $request){
+    public function insertCart(Request $request){
 
         $username = $request->input('username');
         $ISBN_13 = $request->input('ISBN_13');
@@ -30,7 +30,7 @@ class CartController extends Controller
                 "book_quantity"=>$book_quantity);
     
             DB::table('carts')->insert($data);
-            echo "Added to cart successfully.<br/>";
+            return redirect('/')->with('alert', "Added To Cart");
 
         } else if($result) {
             //$result_1 = DB::select('select book_quantity from carts where username = ? AND ISBN_13 = ?', [$username, $ISBN_13])->value('book_quantity');
@@ -42,13 +42,36 @@ class CartController extends Controller
             $data=array(
                 "book_quantity"=>$newQuantity);
 
-            DB::table('carts')->where('ISBN_13', $ISBN_13)->update($data);
-            echo "Added to cart successfully. 2<br/>";
+            DB::table('carts')->where('username',$username)->where('ISBN_13',$ISBN_13)->update($data);
+            return redirect('/')->with('alert', "Cart Updated");
         }
 
-        
-        echo '<a href = "/">Click Here</a> to go back.';
+    }
 
+    public function updateCart(Request $request){
+        $username = $request->input('username');
+        $ISBN_13 = $request->input('ISBN_13');
+        $book_quantity = $request->input('book_quantity');
+        $quantity = $request->input('quantity');
+
+        $result = DB::select('select * from carts where username = ? AND ISBN_13 = ?', [$username, $ISBN_13]);
+
+        $newQuantity = ($book_quantity) + $quantity;
+
+        $data=array(
+            "book_quantity"=>$newQuantity);
+
+        DB::table('carts')->where('username',$username)->where('ISBN_13',$ISBN_13)->update($data);
+
+        return redirect('cart');
+    }
+
+    public function deleteCart(){
+        $ISBN_13 = $_GET['delete_isbn13'];
+        $username = $_GET['username'];
+
+        DB::table('carts')->where('username',$username)->where('ISBN_13',$ISBN_13)->delete(); 
+        return redirect('cart');
     }
 
     // remove function

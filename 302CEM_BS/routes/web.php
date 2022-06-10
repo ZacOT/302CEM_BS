@@ -57,7 +57,9 @@ Route::get('/', function () {
 
 // Route for Cart Database
 
-Route::post('insertCart','App\Http\Controllers\CartController@insert')->name('insertCart');
+Route::post('insertCart','App\Http\Controllers\CartController@insertCart')->name('insertCart');
+Route::post('updateCart','App\Http\Controllers\CartController@updateCart')->name('updateCart');
+Route::get('deleteCart','App\Http\Controllers\CartController@deleteCart')->name('deleteCart');
 Route::post('/','App\Http\Controllers\CartController@printCart');
 
 Route::get('/cart', function () {

@@ -33,13 +33,39 @@
 							<h3 class='subtitle'>{{ $books->book_description }}</h3>
 					</div>
 					<div class='counter'>
-							<div class='count'>{{ $cart->book_quantity }}</div>
+						<form action = {{route("updateCart")}} method ='post' class='form-group' enctype='multipart/form-data'>
+						<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+						<input type="hidden" class="form-control" name="username" value="{{Auth::user()->username}}">
+                    	<input type="hidden" class="form-control" name="ISBN_13" value="{{$books->ISBN_13}}">
+                    	<input type="hidden" class="form-control" name="book_quantity" value="{{ $cart->book_quantity }}">
+						<input type="hidden" class="form-control" name="quantity" value=1>
+						<button type="submit">+</button>
+						</form>
+
+						<div class='count'>{{ $cart->book_quantity }}</div>
+
+						<form action = {{route("updateCart")}} method ='post' class='form-group' enctype='multipart/form-data'>
+						<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+						<input type="hidden" class="form-control" name="username" value="{{Auth::user()->username}}">
+                    	<input type="hidden" class="form-control" name="ISBN_13" value="{{$books->ISBN_13}}">
+                    	<input type="hidden" class="form-control" name="book_quantity" value="{{ $cart->book_quantity }}">
+                    	<input type="hidden" class="form-control" name="quantity" value=-1>
+						<button type="submit">-</button>
+						</form>
 					</div>
 					<div class='prices'>
 						@php $subTotal = $cart->book_quantity * $books->retail_price; @endphp
+							<!-- Make Amount adjustable -->
 							<div class='amount'>@php echo "$subTotal"; @endphp</div>
 							<br/><br/><br/><br/><br/>
-							<div class='remove'><u>Remove</u></div>
+							<!-- Make Remove functional -->
+							<form action = "{{route('deleteCart')}}" method='GET' class='form-group' action='/' enctype='multipart/form-data'>
+							<input type = 'hidden' name = '_token' value = '<?php echo csrf_token(); ?>'>
+							<input type="hidden" class="form-control" name="username" value="{{Auth::user()->username}}">
+							<input type ='hidden' name ='delete_isbn13' value="{{ $books->ISBN_13 }}">
+							
+							<button type='submit'>Remove</button>
+							</form>
 					</div>
 				</div>
 
