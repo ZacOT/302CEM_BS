@@ -137,6 +137,16 @@ hr{
 	float: right;
 	margin-right: 5%;
 }
+.payment{
+	float: left;
+	margin-right: 5%;
+	width: 28%;
+}
+.shipping{
+	float: left;
+	margin-right: 5%;
+	width: 28%;
+}
 .checkout{
 	float: right;
 	margin-right: 5%;

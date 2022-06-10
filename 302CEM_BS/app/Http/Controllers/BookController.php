@@ -142,4 +142,3 @@ class BookController extends Controller
         return redirect('/')->with('alert', 'Book deleted successfully! ');
     }
 }
-

@@ -1,7 +1,6 @@
 body{margin:0; padding:0; font-size:13px; font-family:Georgia, "Arial", Times, serif; color:black; background-color:#FFFFFF;}
 
-html[xmlns] .clear{display:block;}
-* html .clear{height:1%;}
+* {box-sizing: border-box;}
 
 /* Add padding to containers */
 .container {padding: 16px; background-color: white; color: black;}

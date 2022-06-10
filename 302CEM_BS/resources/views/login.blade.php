@@ -8,7 +8,7 @@
     
     <br><br>
 
-    <h1 style="text-align:center;">Login Page</h1> 
+    <h1 style="text-align:center;">Login Page</h1>
     @if (session('status'))
         <p style="text-align:center;">{{ session('status') }}</p>
     @endif

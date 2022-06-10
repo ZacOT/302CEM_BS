@@ -27,7 +27,6 @@ class LoginController extends Controller
             
         if($user) {
             Auth::login($user);
-
             $role = Auth::user()->role;
 
             if($role == 1){

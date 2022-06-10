@@ -1,7 +1,6 @@
 @include('header')
 
 <link rel="stylesheet" href="<?php echo asset('css/addBook.css')?>" type="text/css"> 
-
 <title>Check Book @yield('title')</title>
 
 <h1 style="text-align: center;">Check Books</h1>

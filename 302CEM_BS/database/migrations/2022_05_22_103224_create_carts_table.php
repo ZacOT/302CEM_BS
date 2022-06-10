@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('username');
             $table->string('ISBN_13');
             $table->integer('book_quantity');
-            $table->double('subtotal');
             $table->timestamps();
         });
     }

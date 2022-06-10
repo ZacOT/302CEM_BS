@@ -12,6 +12,7 @@ class OrderController extends Controller
         return view('welcome',compact('orders'));
     }
   
+
     public function insertOrder(Request $request){
 
         $username = $request->input('username');
