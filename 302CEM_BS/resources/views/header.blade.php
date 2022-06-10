@@ -24,14 +24,24 @@
                         <h1>Online Book Store </h1>
                     </td>
 
-                    <td  align="center">
-                        <p><b>Total Price: $ </b></p>
-                    </td>
+                    <?php 
+                        if(Auth::user() != NULL){
+                            $role = Auth::user()->role;
+                            if($role == 1){ ?>
+                                
+                                <td  align='center'>
+                                <p><b>Total Price: {{ Session::get('totalPrice') }} $
+                                </b></p>
+                                </td>
 
-                    <td align="center">
-                        <a href="cart"><img src='images/cart_logo.png' height='40' width='40'></a> &nbsp;
-                        <span class='badge badge-warning' id='lblCartCount'> 5 </span>
-                    </td>
+                                <td align='center'>
+                                <a href='cart'><img src='images/cart_logo.png' height='40' width='40'></a> &nbsp;
+                                <span class='badge badge-warning' id='lblCartCount'> {{ Session::get('totalQuantity') }} </span>
+                                </td>
+                                <?php
+                                }
+                            }
+                            ?>
                 </tr>
             </table>
 

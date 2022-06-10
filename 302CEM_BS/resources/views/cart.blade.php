@@ -85,8 +85,14 @@
 	<div>
 		<div class='Subtotal'>Sub-Total</div>
 		<div class='items'>@php echo "$totalQuantity"; @endphp items</div>
+
+		<?php 
+		Session::put('totalPrice', $grandTotal);
+		Session::put('totalQuantity', $totalQuantity);
+		?>
 	</div>
-	<div class(='total-amount'>@php echo "$grandTotal"; @endphp</div>
+	<div class='total-amount'>@php echo "$grandTotal"; @endphp</div>
+
 	</div>
 	<a href="/order">
 		<div><button class='button'>Checkout</button></div>

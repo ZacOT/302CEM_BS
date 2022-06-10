@@ -43,7 +43,7 @@ class CartController extends Controller
                 "book_quantity"=>$newQuantity);
 
             DB::table('carts')->where('username',$username)->where('ISBN_13',$ISBN_13)->update($data);
-            return redirect('/')->with('alert', "Cart Updated");
+            return redirect('cart')->with('alert', "Cart Updated");
         }
 
     }
