@@ -135,5 +135,11 @@ class BookController extends Controller
 
             }
 
+    public function deleteBook(){
+        $isbn_13 = $_GET['delete_isbn13'];
+
+        DB::table('books')->where('ISBN_13',[$isbn_13])->delete(); 
+        return redirect('/')->with('alert', 'Book deleted successfully! ');
+    }
 }
 

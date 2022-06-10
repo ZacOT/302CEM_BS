@@ -65,3 +65,5 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'validateLogin']);
 
 Route::get('/logout', [LogoutController::class, 'logout']);
+
+Route::get('deleteBook','App\Http\Controllers\BookController@deleteBook')->name('deleteBook');
