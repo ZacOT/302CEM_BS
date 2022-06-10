@@ -28,7 +28,7 @@ class UserController extends Controller
 
         $username = $request->input('username');
         $password = $request->input('password');
-        $role= $request->input('role');
+        $role = $request->input('role');
         $name = $request->input('name');
         $email = $request->input('email');
         $address = $request->input('address');

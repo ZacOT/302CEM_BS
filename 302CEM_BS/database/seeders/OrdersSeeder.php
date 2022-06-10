@@ -19,10 +19,7 @@ class OrdersSeeder extends Seeder
         // Carts Seeder Template
         DB::table('orders')->insert([
             'username'=>'admin',
-            'address'=>'INTI Road Book Store 11900',
-            'ISBN_13'=>'BS1001',
-            'book_quantity'=>'2',
-            'retail_price'=>'5',
+            'subtotal'=>'0',
         ]);
     }
 }

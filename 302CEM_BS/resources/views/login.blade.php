@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<link rel="stylesheet" href="<?php echo asset('css/login.css')?>" type="text/css"> 
+@include('header')
 
-    @include('header')
+<title>Login @yield('title')</title>
+
+
+<body>
+<link rel="stylesheet" href="<?php echo asset('css/login.css')?>" type="text/css"> 
     
+    <br><br>
+
     <h1 style="text-align:center;">Login Page</h1>
     @if (session('status'))
         <p style="text-align:center;">{{ session('status') }}</p>
@@ -27,12 +31,11 @@
                     </div>
                      @enderror
                      <br>
-                    <button type="submit" class="login" name="login_submit">Login</button><br><br>
+                    <button type="submit" name="login_submit" class='registerbtn'>Login</button><br><br>
 
-                    <a href>Sign Up here</a>
+                    <a href="register">Sign Up here</a>
             </form>
         </div>
     </div>
-
-    @include('footer')
-</html>
+</body>
+@include('footer')
