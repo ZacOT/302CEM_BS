@@ -65,6 +65,16 @@ Route::get('/cart', function () {
     return view('cart', compact('carts'));
 });
 
+// Route for Order Database
+
+Route::post('insertOrder','App\Http\Controllers\OrderController@insert')->name('insertOrder');
+Route::post('/','App\Http\Controllers\OrderController@printOrder');
+
+Route::get('/order', function () {
+    $orders = DB::table('orders')->select('username','address','ISBN_13','book_quantity','retail_price')->get();
+    return view('order', compact('orders'));
+});
+
 // Route for AddBook
 
 Route::post('insertBook','App\Http\Controllers\BookController@insert')->name('insertBook');

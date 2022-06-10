@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('ISBN_13');
             $table->integer('book_quantity');
-            $table->double('subtotal');
+            $table->double('retail_price');
             $table->timestamps();
         });
     }

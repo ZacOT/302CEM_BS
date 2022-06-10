@@ -28,7 +28,7 @@
 
                     <input type="hidden" class="form-control" name="username" value="{{Auth::user()->username}}">
                     <input type="hidden" class="form-control" name="ISBN_13" value="{{$book->ISBN_13}}">
-                    <input type="hidden" class="form-control" name="book_quantity" value="1">
+                    <input type="hidden" class="form-control" name="book_quantity" value=1>
 
                     <button type="submit">Add To Cart</button>
                     </form>

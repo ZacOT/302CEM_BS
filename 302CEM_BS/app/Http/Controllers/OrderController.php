@@ -18,14 +18,14 @@ class OrderController extends Controller
         $username = $request->input('address');
         $ISBN_13 = $request->input('ISBN_13');
         $book_quantity = $request->input('book_quantity');
-        $subtotal = $request->input('subtotal');
+        $retail_price = $request->input('retail_price');
 
         $data=array(
             "username"=>$username,
             "address"=>$address,
             "ISBN_13"=>$ISBN_13,
             "book_quantity"=>$book_quantity,
-            "subtotal"=>$subtotal);
+            "retail_price"=>$retail_price);
 
         DB::table('orders')->insert($data);
             
