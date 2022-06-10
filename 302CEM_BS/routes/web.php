@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\Auth\LoginController;
+<<<<<<< Updated upstream
 use App\Http\Controllers\Auth\LogoutController;
 
+=======
+use App\Http\Controllers\OrderController;
+>>>>>>> Stashed changes
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,10 +47,20 @@ Route::get('/', function () {
     return view('welcome', compact('users'));
 });
 
+<<<<<<< Updated upstream
 Route::get('/', function () {
     $books = DB::table('carts')->select('username','ISBN_13','book_quantity', 'subtotal')->get();
     return view('welcome', compact('carts'));
+=======
+// Route for Order Database
+
+Route::get('/order', function () {
+    $carts = DB::table('carts')->where('username', Auth::user()->username)->get();
+    $books = DB::table('books')->get();
+    return view('order', compact('books', 'carts'));
+>>>>>>> Stashed changes
 });
+Route::post('/createOrder', [OrderController::class, 'insertOrder'])->name('createOrder');
 
 Route::get('/register', function () {
     return view('register');
