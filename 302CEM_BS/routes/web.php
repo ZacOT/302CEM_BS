@@ -70,6 +70,7 @@ Route::get('/', function () {
 Route::get('/', function () {
     $books = DB::table('carts')->select('username','ISBN_13','book_quantity', 'subtotal')->get();
     return view('welcome', compact('carts'));
+});
 
 // Route for Order Database
 

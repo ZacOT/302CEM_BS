@@ -24,26 +24,20 @@
                     $role = Auth::user()->role;
                     
                       if($role == 1){
-                        echo" <h4>Retail Price: $book->retail_price </h4> ";
-                        echo" <button> Add To Cart </button> ";
+                        echo" <h4>Retail Price: $book->retail_price </h4> "; ?>
+
+                        <form action = {{route("insertCart")}} method ='post' class='form-group' enctype='multipart/form-data' align='center'>
+                        <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+    
+                        <input type="hidden" class="form-control" name="username" value="{{Auth::user()->username}}">
+                        <input type="hidden" class="form-control" name="ISBN_13" value="{{$book->ISBN_13}}">
+                        <input type="hidden" class="form-control" name="book_quantity" value=1>
+    
+                        <button type="submit">Add To Cart</button>
+                        </form>
+                      <?php
                         }
 
-                    </center>          
-
-                @if(Auth::user())
-
-                    <form action = {{route("insertCart")}} method ='post' class='form-group' enctype='multipart/form-data' align='center'>
-                    <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
-
-                    <input type="hidden" class="form-control" name="username" value="{{Auth::user()->username}}">
-                    <input type="hidden" class="form-control" name="ISBN_13" value="{{$book->ISBN_13}}">
-                    <input type="hidden" class="form-control" name="book_quantity" value=1>
-
-                    <button type="submit">Add To Cart</button>
-                    </form>
-
-                    </center>
-                </div>
                       if($role == 0){
                         echo" <h4>ISBN_13: $book->ISBN_13 </h4> ";
                         echo" <h4>Stock Quantity: $book->book_stock </h4> ";
@@ -54,16 +48,17 @@
                         
                         <?php echo"
                         <button type='submit'>Delete Book</button>
-                        </form>";
+                        </form>
+                      ";
                         
 
                         }     
-                    }
-                ?> 
-                    </center>          
+                      }
+                        ?>
+
+                    </center>
                     </div>
 
-                @endif
 
                 @endforeach
                 
