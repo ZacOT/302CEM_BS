@@ -1,12 +1,7 @@
-
 body{margin:0; padding:0; font-size:13px; font-family:Georgia, "Arial", Times, serif; color:black; background-color:#FFFFFF;}
 
 html[xmlns] .clear{display:block;}
 * html .clear{height:1%;}
-
-* {
-    box-sizing: border-box;
-  }
 
 /* Add padding to containers */
 .container {padding: 16px; background-color: white; color: black;}
@@ -24,7 +19,6 @@ hr {border: 1px solid #f1f1f1; margin-bottom: 25px;}
 
 /* Add a blue text color to links */
 a {color: dodgerblue;}
-p {color: black;}
 
 /* Set a grey background color and center the text of the 'sign in' section */
 .signin {background-color: #f1f1f1; text-align: center;}

@@ -2,56 +2,8 @@
 
 <link rel="stylesheet" href="<?php echo asset('css/addBook.css')?>" type="text/css"> 
 
-<title>Check Book @yield('title')</title>
+<title>Add Book @yield('title')</title>
 
-<h1 style="text-align: center;">Check Books</h1>
-
-@if($errors->any())
-
-<center>
-<h4 style="color:Tomato;">{{$errors->first()}}</h4>
-</center>
-
-@endif
-
-<center>
-<form action = "{{route('findBook')}}" method="GET" class="form-group" action="/addBook" enctype="multipart/form-data">
-
-<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>"><input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
-
-<input type="text" class="form-control" placeholder="ISBN_13" name="find_isbn">
-
-<button type="submit" name='submitted' value ="addbook" class='registerbtn'>Find Book</button>
-
-</form>
-
-</center>
-
-<?php
-if(isset($_GET["submitted"])){ ?>
-
-@foreach($results as $find)
-<?php 
-
-if($find != NULL ){
-  echo" <h4> $find->ISBN_13 </h4> ";
-}else{
-  echo"
-  <h4> this is amazing</h4>
-  ";
-}
-
- ?>
-
-@endforeach
-
-<?php 
- }
-?>
-
-<br><br>
-
-<!-- 
 <h1 style="text-align: center;">Add New Books</h1>
 
 <form action = "{{route('insertBook')}}" method = "post" class="form-group" action="/addBook" enctype="multipart/form-data">
@@ -59,16 +11,31 @@ if($find != NULL ){
 <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>"><input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 
   <center>
+  @error('book_title')
+    <div class="error">
+        {{ $message }}
+    </div>
+  @enderror
 
   <input type="text" class="form-control" placeholder="Book Title" name="book_title">
 
+  @error('book_author')
+    <div class="error">
+        {{ $message }}
+    </div>
+  @enderror
   <p><input type="text" class="form-control" placeholder="Book Author" name="book_author"></p>
 
-  <p><input type="date" id="start" name="publication_date" value="2020-01-01"
+  <p><input type="date" id="start" name="publication_date" value="2022-01-01"
        min="2020-01-01" max="2022-12-31"></p>
 
-  <input type="text" class="form-control" placeholder="ISBN_13" name="ISBN_13">
+  <input type="text" class="form-control" placeholder="ISBN_13" name="ISBN_13" value={{$isbn_13}} readonly>
 
+  @error('book_description')
+    <div class="error">
+        {{ $message }}
+    </div>
+  @enderror
   <input type="text" class="form-control" placeholder="Description" name="book_description">
 
   <br><h3>Trade Price: </h3>
@@ -83,7 +50,12 @@ if($find != NULL ){
   <input type="range" min="1" max="20" value="10" class="slider" id="book_stock" name='book_stock'>
   <h3>Value: <span id="stock_msg"></span></h3>
 
-  <p><label for="img">Select image:</label>
+  @error('book_cover_img')
+    <div class="error">
+        {{ $message }}
+    </div>
+  @enderror
+  <h3><label for="img">Select image:</label>
   <input type="file" id="img" name="book_cover_img" accept="image/*"></p>
 
   <br><br>
@@ -94,9 +66,13 @@ if($find != NULL ){
 
 </form> 
 
-</center> -->
-
 @include('footer')
+
+<?php
+echo '<script type="text/javascript">
+       window.onload = function () { alert("New ISBN_13 Number Detected, Add it as a new book entry!"); } 
+</script>'; 
+?>
 
 <script>
 var trade_slider = document.getElementById("trade_price");
@@ -125,12 +101,5 @@ stock_output.innerHTML = stock_slider.value; // Display the default slider value
 stock_slider.oninput = function() {
   stock_output.innerHTML = this.value;
 }
-
-  var msg = '{{Session::get('alert')}}';
-  var exist = '{{Session::has('alert')}}';
-
-  if(exist){
-          alert(msg);
-        }
 
 </script>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 
@@ -14,6 +15,13 @@ use App\Http\Controllers\Auth\LogoutController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('findBook','App\Http\Controllers\BookController@findBook')->name('findBook');
+
+Route::POST('updateBook','App\Http\Controllers\BookController@updateBook')->name('updateBook');
+
+Route::get('/admin', function () {
+    return view('admin');
+});
 
 Route::get('/addBook', function () {
     return view('addBook');
@@ -31,12 +39,7 @@ Route::post('insertUser','App\Http\Controllers\UserController@insert')->name('in
 Route::post('/','App\Http\Controllers\UserController@printUser');
 
 Route::get('/', function () {
-    $books = DB::table('books')->select('book_title','book_price','book_cover_img')->get();
-    return view('welcome', compact('books'));
-});
-
-Route::get('/', function () {
-    $books = DB::table('users')->select('username','password','name', 'email', 'address')->get();
+    $books = DB::table('users')->select('username','password','role','name', 'email', 'address')->get();
     return view('welcome', compact('users'));
 });
 
@@ -54,7 +57,7 @@ Route::get('/cart', function () {
 });
 
 Route::get('/', function () {
-    $books = DB::table('books')->select('book_title','retail_price','book_cover_img')->get();
+    $books = DB::table('books')->select('book_title','retail_price','book_cover_img','ISBN_13','book_stock')->get();
     return view('welcome', compact('books'));
 });
 
@@ -62,3 +65,5 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'validateLogin']);
 
 Route::get('/logout', [LogoutController::class, 'logout']);
+
+Route::get('deleteBook','App\Http\Controllers\BookController@deleteBook')->name('deleteBook');

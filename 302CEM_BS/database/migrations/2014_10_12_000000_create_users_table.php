@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('username')->unique(); //Make sure username only exist in database once
             $table->string('password'); //Need Encrypt
+            $table->string('role');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('address');
