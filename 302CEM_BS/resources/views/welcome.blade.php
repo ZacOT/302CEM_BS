@@ -23,7 +23,7 @@
                   if(Auth::user()){
                     $role = Auth::user()->role;
                     
-                      if($role == 1){
+                      if($role == 1){                        
                         echo" <h4>Retail Price: $book->retail_price </h4> "; ?>
 
                         <form action = {{route("insertCart")}} method ='post' class='form-group' enctype='multipart/form-data' align='center'>
@@ -41,19 +41,20 @@
                       if($role == 0){
                         echo" <h4>ISBN_13: $book->ISBN_13 </h4> ";
                         echo" <h4>Stock Quantity: $book->book_stock </h4> ";
-                        ?> 
+                      }
+                ?> 
                         <form action = "{{route('deleteBook')}}" method='GET' class='form-group' action='/' enctype='multipart/form-data'>
                         <input type = 'hidden' name = '_token' value = '<?php echo csrf_token(); ?>'>
                         <input type = 'hidden' name = 'delete_isbn13' value="{{ $book->ISBN_13 }}">
                         
-                        <?php echo"
+                <?php echo"
                         <button type='submit'>Delete Book</button>
                         </form>
                       ";
                         
 
                         }     
-                      }
+    
                         ?>
 
                     </center>
