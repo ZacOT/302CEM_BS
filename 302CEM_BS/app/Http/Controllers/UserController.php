@@ -18,7 +18,7 @@ class UserController extends Controller
         
         // Validation for Form Database
         $this->validate($request, [
-            'username' => 'required|max:255',
+            'username' => 'required|max:255|unique:users,username',
             'password' => 'required|confirmed',
             'password_confirmation' => 'required',
             'name' => 'required|max:255',
@@ -28,6 +28,7 @@ class UserController extends Controller
 
         $username = $request->input('username');
         $password = $request->input('password');
+        $role = $request->input('role');
         $name = $request->input('name');
         $email = $request->input('email');
         $address = $request->input('address');
@@ -35,6 +36,7 @@ class UserController extends Controller
         $data=array(
             "username"=>$username,
             "password"=>$password,
+            "role"=>$role,
             "name"=>$name,
             "email"=>$email,
             "address"=>$address);

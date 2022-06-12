@@ -24,10 +24,10 @@ div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:left;}
 /*----------------------------------------------Header-------------------------------------*/
 
 #header{padding: 20px 10px 10px 10px ;}
-#header #hgroup{float:left; margin:0 0 20px 0; margin-left:0%;}
+#header #hgroup{float:left; margin:0 0 20px 0; margin-left:0%; width: 82%; height: 90%;}
 #header #hgroup h1, #header #hgroup h2{font-weight:normal; text-transform:none;}
 
-#header nav{display:block; float:right; margin:20px 0 0 0; padding:20px 0; color: black; background-color:#F09090;}
+#header nav{display:block; float:right; margin:10px 0 0 0; padding:20px 0; color: black; background-color:#F09090;}
 #header nav ul{padding:0 100px;}
 #header nav li{display:inline; margin-right:30px; text-transform:uppercase;}
 #header nav li.last{margin-right:0;}
@@ -42,4 +42,34 @@ div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:left;}
     margin-right: 150px;
     grid-auto-rows: 300px;
     justify-content: center;
+  }
+
+  .welcomeMsg {
+    align-content: right;
+    padding: 25px 50px 0px 0px;
+    margin-left: 80%;    
+
+  }
+
+  .badge {
+    padding-left: 10px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 12px;
+  }
+  
+  .label-warning[href],
+  .badge-warning[href] {
+    background-color: #c67605;
+  }
+  
+  #lblCartCount {
+      font-size: 12px;
+      padding-left: 5px;
+      background: #ff0000;
+      color: #fff;
+      padding: 0 6px;
+      vertical-align: top;
+      margin-left: -10px; 
   }

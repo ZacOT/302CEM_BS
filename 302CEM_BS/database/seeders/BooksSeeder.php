@@ -39,5 +39,17 @@ class BooksSeeder extends Seeder
             'retail_price'=>'6',
             'book_stock'=>'20'
             ]);
+
+        DB::table('books')->insert([
+            'book_title'=>'Heartstopper',
+            'book_author'=>'Author 3',
+            'publication_date'=>'2020-03-03',
+            'ISBN_13'=>'BS1003',
+            'book_description'=>'Why Yaoi',
+            'book_cover_img'=>'Heartstopper.jfif',
+            'trade_price'=>'3.5',
+            'retail_price'=>'7',
+            'book_stock'=>'15'
+            ]);
     }
 }

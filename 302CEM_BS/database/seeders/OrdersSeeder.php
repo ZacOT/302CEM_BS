@@ -19,7 +19,7 @@ class OrdersSeeder extends Seeder
         // Carts Seeder Template
         DB::table('orders')->insert([
             'username'=>'admin',
-            'subtotal'=>'100',
+            'subtotal'=>'0',
         ]);
     }
 }
