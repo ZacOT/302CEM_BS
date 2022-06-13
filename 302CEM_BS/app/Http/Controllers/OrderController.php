@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -55,8 +56,8 @@ class OrderController extends Controller
 
 
         }    
-        echo "Placed order successfully.<br/>";
-        echo '<a href = "/">Click Here</a> to go back.';
+        return redirect('/')->with('alert', "Order placed successfully");
+
 
     }
 

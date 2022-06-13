@@ -55,7 +55,7 @@
         {{ $message }}
     </div>
   @enderror
-  <h3><label for="img">Select image:</label>
+  <h3><label for="img">Select image:</label></h3>
   <input type="file" id="img" name="book_cover_img" accept="image/*"></p>
 
   <br><br>
