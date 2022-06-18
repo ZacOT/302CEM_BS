@@ -73,13 +73,6 @@ Route::get('/', function () {
 });
 // Route for Order Database
 
-Route::get('/order', function () {
-    $carts = DB::table('carts')->where('username', Auth::user()->username)->get();
-    $books = DB::table('books')->get();
-    return view('order', compact('books', 'carts'));
-});
-Route::post('/createOrder', [OrderController::class, 'insertOrder'])->name('createOrder');
-
 Route::post('insertCart','App\Http\Controllers\CartController@insertCart')->name('insertCart');
 Route::post('updateCart','App\Http\Controllers\CartController@updateCart')->name('updateCart');
 Route::get('deleteCart','App\Http\Controllers\CartController@deleteCart')->name('deleteCart');
@@ -97,9 +90,11 @@ Route::post('insertOrder','App\Http\Controllers\OrderController@insert')->name('
 Route::post('/','App\Http\Controllers\OrderController@printOrder');
 
 Route::get('/order', function () {
-    $orders = DB::table('orders')->select('username','address','ISBN_13','book_quantity','retail_price')->get();
-    return view('order', compact('orders'));
+    $carts = DB::table('carts')->where('username', Auth::user()->username)->get();
+    $books = DB::table('books')->get();
+    return view('order', compact('books', 'carts'));
 });
+Route::post('/createOrder', [OrderController::class, 'insertOrder'])->name('createOrder');
 
 // Route for AddBook
 

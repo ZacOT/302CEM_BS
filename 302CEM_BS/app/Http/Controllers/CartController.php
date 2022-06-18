@@ -30,7 +30,7 @@ class CartController extends Controller
                 "book_quantity"=>$book_quantity);
     
             DB::table('carts')->insert($data);
-            return redirect('/')->with('alert', "Added To Cart");
+            return redirect('cart')->with('alert', "Added To Cart");
 
         } else if($result) {
             //$result_1 = DB::select('select book_quantity from carts where username = ? AND ISBN_13 = ?', [$username, $ISBN_13])->value('book_quantity');
@@ -43,7 +43,7 @@ class CartController extends Controller
                 "book_quantity"=>$newQuantity);
 
             DB::table('carts')->where('username',$username)->where('ISBN_13',$ISBN_13)->update($data);
-            return redirect('/')->with('alert', "Cart Updated");
+            return redirect('cart')->with('alert', "Cart Updated");
         }
 
     }

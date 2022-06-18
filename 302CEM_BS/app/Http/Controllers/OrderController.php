@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -38,15 +39,25 @@ class OrderController extends Controller
             );
 
             DB::table('orderitem')->insert($data);
-            
+
+            $oldQuantity = DB::table('carts')->where('ISBN_13',[$cart->ISBN_13])->pluck('book_quantity')->first();
+            $newQuantity = $oldQuantity - ($cart->book_quantity);
+
+            DB::table('books')->where('ISBN_13',$cart->ISBN_13)->update(['book_stock'=>$newQuantity]);
+            DB::table('carts')->where('username',[$username])->delete(); 
+
+            Session::put('totalPrice', 0);
+            Session::put('totalQuantity', 0);
+
             $books = DB::table('books')->where('ISBN_13', $cart->ISBN_13)->get()->first();
             $subTotal = $cart->book_quantity * $books->retail_price;
             $grandTotal += $subTotal; 
             DB::table('orders')->where('order_id', $orderid->order_id)->update(['subtotal'=>$grandTotal]);
 
+
         }    
-        echo "Placed order successfully.<br/>";
-        echo '<a href = "/">Click Here</a> to go back.';
+        return redirect('/')->with('alert', "Order placed successfully");
+
 
     }
 
