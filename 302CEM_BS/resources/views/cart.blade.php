@@ -38,8 +38,8 @@
 						<input type="hidden" class="form-control" name="username" value="{{Auth::user()->username}}">
                     	<input type="hidden" class="form-control" name="ISBN_13" value="{{$books->ISBN_13}}">
                     	<input type="hidden" class="form-control" name="book_quantity" value="{{ $cart->book_quantity }}">
-						<input type="hidden" class="form-control" name="quantity" value=1>
-						<button type="submit">+</button>
+						<input type="hidden" class="form-control" name="quantity" value=-1>
+						<button type="submit">-</button>
 						</form>
 
 						<div class='count'>{{ $cart->book_quantity }}</div>
@@ -49,14 +49,14 @@
 						<input type="hidden" class="form-control" name="username" value="{{Auth::user()->username}}">
                     	<input type="hidden" class="form-control" name="ISBN_13" value="{{$books->ISBN_13}}">
                     	<input type="hidden" class="form-control" name="book_quantity" value="{{ $cart->book_quantity }}">
-                    	<input type="hidden" class="form-control" name="quantity" value=-1>
-						<button type="submit">-</button>
+                    	<input type="hidden" class="form-control" name="quantity" value=1>
+						<button type="submit">+</button>
 						</form>
 					</div>
 					<div class='prices'>
 						@php $subTotal = $cart->book_quantity * $books->retail_price; @endphp
 							<!-- Make Amount adjustable -->
-							<div class='amount'>@php echo "$subTotal"; @endphp</div>
+							<div class='amount'>@php echo "$subTotal"; @endphp $</div>
 							<br/><br/><br/><br/><br/>
 							<!-- Make Remove functional -->
 							<form action = "{{route('deleteCart')}}" method='GET' class='form-group' action='/' enctype='multipart/form-data'>
@@ -91,7 +91,7 @@
 		Session::put('totalQuantity', $totalQuantity);
 		?>
 	</div>
-	<div class='total-amount'>@php echo "$grandTotal"; @endphp</div>
+	<div class='total-amount'>@php echo "$grandTotal"; @endphp $</div>
 
 	</div>
 	<a href="/order">

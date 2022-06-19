@@ -40,7 +40,7 @@
 						</div>
 						<div class='prices'>
 							@php $subTotal = $curqty * $book->retail_price; @endphp
-								<div class='amount'>@php echo "$subTotal"; @endphp</div>
+								<div class='amount'>@php echo "$subTotal"; @endphp $</div>
 								<br/><br/><br/><br/><br/>
 						</div>
 					</div>
@@ -61,7 +61,7 @@
 		<div class='Subtotal'>Sub-Total</div>
 		<div class='items'>@php echo "$totalQuantity"; @endphp items</div>
 	</div>
-	<div class='total-amount'>@php echo "$grandTotal"; @endphp</div>
+	<div class='total-amount'>@php echo "$grandTotal"; @endphp $</div>
 	<div><form action="{{ route('createOrder') }}" method="post">
 		@csrf
 		<input type="hidden" id="username" name="username" value="{{ $username }}">
