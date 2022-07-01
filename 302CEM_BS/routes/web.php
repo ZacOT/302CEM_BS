@@ -83,6 +83,13 @@ Route::get('/cart', function () {
     return view('cart', compact('carts'));
 });
 
+// Route for Order History Page
+
+Route::get('/orderhistory', function () {
+    $orders = DB::table('orders')->where('username', Auth::user()->username)->get();
+    $orderitems = DB::table('orderitem')->get();
+    return view('orderhistory', compact('orders','orderitems'));
+});
 
 // Route for Order Database
 
