@@ -64,7 +64,7 @@
 		<div class='total-amount'>@php echo "$grandTotal"; @endphp</div>
 	<div><form action="{{ route('createOrder') }}" method="post">
 		@csrf
-		<input type="hidden" id="username" name="username" value="{{ $username }}">
+		<input type="hidden" id="username" name="username" value="{{ Auth::user()->name; }}">
 		<div><button type="submit" class='button'>Confirm Order</button></div>
 	</form></div>
 	

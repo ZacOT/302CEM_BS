@@ -13,6 +13,12 @@ class OrderController extends Controller
         return view('welcome',compact('orders'));
     }
   
+    public function viewOrder(Request $request){
+        $orders = DB::table('orders')->where('order_id', $request->input('orderid'))->get();
+        $orderitems = DB::table('orderitem')->get();
+        $books = DB::table('books')->get();
+        return view('viewOrder', compact('orders', 'orderitems', 'books'));
+    }
 
     public function insertOrder(Request $request){
 

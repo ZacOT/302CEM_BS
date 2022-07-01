@@ -109,6 +109,8 @@ Route::get('/order', function () {
     return view('order', compact('books', 'carts'));
 });
 Route::post('/createOrder', [OrderController::class, 'insertOrder'])->name('createOrder');
+Route::post('/viewOrder', [OrderController::class, 'viewOrder'])->name('viewOrder');
+
 
 // Route for AddBook
 

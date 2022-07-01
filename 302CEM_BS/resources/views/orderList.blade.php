@@ -9,7 +9,7 @@
         <table style="width: 95%; border: 1px solid; margin-left: auto; margin-right: auto;">
             <tr style="outline: thin">
                 <th style="text-align: left; background-color: coral; width: 5%;">Order ID</th>
-                <th style="text-align: left; background-color: coral; width: 15%;">Customer</th>
+                <th style="text-align: left; background-color: coral; width: 15%;">Name</th>
                 <th style="text-align: left; background-color: coral; width: 20%;">Address</th>
                 <th style="text-align: left; background-color: coral; width: 20%;">Item</th>
                 <th style="text-align: left; background-color: coral; width: 10%;">ISBN 13</th>
