@@ -6,11 +6,11 @@
     <h1 style="text-align:center;">Order History</h1>
 
     <!--table-layout: fixed; width: 75%;-->
-        <table style="width: 95%; border: 1px solid; margin-left: auto; margin-right: auto;">
-            <tr style="outline: thin">
+        <table style="width: 90%; border: 1px solid; margin-left: auto; margin-right: auto;">
+            <tr style="outline: thin solid">
                 <th style="text-align: left; background-color: coral; width: 5%;">Order ID</th>
                 <th style="text-align: left; background-color: coral; width: 15%;">Name</th>
-                <th style="text-align: left; background-color: coral; width: 20%;">Item</th>
+                <th style="text-align: left; background-color: coral; width: 25%;">Item</th>
                 <th style="text-align: left; background-color: coral; width: 10%;">Quantity</th>
                 <th style="text-align: left; background-color: coral; width: 10%;">Subtotal</th>
                 <th style="text-align: left; background-color: coral; width: 10%;">Status</th>
@@ -24,7 +24,7 @@
             </tr>
             <tr style="outline: thin solid">
                 <td>{{ $order->order_id }}</td>
-                <td>{{ $order->username }}</td>
+                <td>{{ $order->name }}</td>
                 <td>
                     @foreach ($orderitems->where('order_id', $curorderid) as $orderitem)
                         @foreach ($books->where('ISBN_13', $orderitem->ISBN_13) as $book)
@@ -42,10 +42,10 @@
                 <td>
                     <?php
                         if ($order->status == 0){
-                            echo "Incomplete";
+                            echo "<text style='color: red;'>Incomplete</text>";
                         } 
                         else if ($order->status == 1){
-                            echo "Completed";
+                            echo "<text style='color: green;'>Completed</text>";
                         }
                         else{
                             echo "ERROR";

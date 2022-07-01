@@ -21,14 +21,16 @@ class OrderController extends Controller
     }
 
     public function insertOrder(Request $request){
-
+        
         $username = $request->input('username');
+        $name = $request->input('name');
         $address = "Filler Address";
         
         //Create Order First
 
         $orderdata=array(
             "username" => $username,
+            "name" => $name,
             "address" => $address,
             "subtotal" => 0,
             "status" => 0,
@@ -37,7 +39,7 @@ class OrderController extends Controller
 
         $grandTotal = 0;
         $carts = DB::table('carts')->where('username', $username)->get();
-        $orderid =  DB::table('orders')->where('username', $username)->latest('order_id')->first();
+        $orderid =  DB::table('orders')->where('name', $name)->latest('order_id')->first();
 
         foreach ($carts as $cart){
 

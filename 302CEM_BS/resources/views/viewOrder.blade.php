@@ -9,7 +9,7 @@
 <body>
    <div class='CartContainer'>
    	   <div class='Header'>
-   	   	<h3 class='Heading'>Order Page</h3>
+   	   	<h3 class='Heading'>View Order History</h3>
 		<a href="/orderhistory">Back to Order History</a>
    	   </div>
 
