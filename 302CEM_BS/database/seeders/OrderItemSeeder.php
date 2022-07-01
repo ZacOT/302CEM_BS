@@ -16,7 +16,6 @@ class OrderItemSeeder extends Seeder
      */
     public function run()
     {
-        // Carts Seeder Template
         DB::table('orderitem')->insert([
             'order_id'=>'1',
             'ISBN_13'=>'BS1001',

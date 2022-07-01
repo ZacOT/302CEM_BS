@@ -85,7 +85,10 @@
                             }
                         ?>
 
-                        <li><a href=''>Purchase History</a></li>
+                        <?php 
+                        if(Auth::user() != NULL){
+                        echo" <li><a href='/orderhistory'>Purchase History</a></li> "; }
+                        ?>
 
                         <?php 
                         if(Auth::user() != NULL){
