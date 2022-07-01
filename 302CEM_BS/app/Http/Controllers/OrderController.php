@@ -17,12 +17,15 @@ class OrderController extends Controller
     public function insertOrder(Request $request){
 
         $username = $request->input('username');
+        $address = "Filler Address";
         
         //Create Order First
 
         $orderdata=array(
             "username" => $username,
+            "address" => $address,
             "subtotal" => 0,
+            "status" => 0,
         );
         DB::table('orders')->insert($orderdata);
 
@@ -35,7 +38,7 @@ class OrderController extends Controller
             $data=array(
                 "order_id"=>intval($orderid->order_id),
                 "ISBN_13"=>$cart->ISBN_13,
-                "orderitem_qty"=>$cart->book_quantity,
+                "orderitem_quantity"=>$cart->book_quantity,
             );
 
             DB::table('orderitem')->insert($data);

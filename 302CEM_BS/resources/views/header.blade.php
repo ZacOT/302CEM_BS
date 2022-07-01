@@ -87,7 +87,10 @@
 
                         <?php 
                         if(Auth::user() != NULL){
-                        echo" <li><a href='/orderhistory'>Purchase History</a></li> "; }
+                            $role = Auth::user()->role;
+                            if($role == 1){
+                                echo" <li><a href='/orderhistory'>Purchase History</a></li> "; }
+                            }
                         ?>
 
                         <?php 

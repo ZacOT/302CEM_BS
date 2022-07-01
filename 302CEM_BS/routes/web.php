@@ -86,11 +86,18 @@ Route::get('/cart', function () {
 // Route for Order History Page
 
 Route::get('/orderhistory', function () {
+    $books = DB::table('books')->get();
     $orders = DB::table('orders')->where('username', Auth::user()->username)->get();
     $orderitems = DB::table('orderitem')->get();
-    return view('orderhistory', compact('orders','orderitems'));
+    return view('orderhistory', compact('books','orders','orderitems'));
 });
 
+Route::get('/orderlist', function () {
+    $books = DB::table('books')->get();
+    $orders = DB::table('orders')->get();
+    $orderitems = DB::table('orderitem')->get();
+    return view('orderlist', compact('books','orders','orderitems'));
+});
 // Route for Order Database
 
 Route::post('insertOrder','App\Http\Controllers\OrderController@insert')->name('insertOrder');

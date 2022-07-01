@@ -18,7 +18,7 @@ class OrderItemSeeder extends Seeder
     {
         DB::table('orderitem')->insert([
             'order_id'=>'1',
-            'ISBN_13'=>'BS1001',
+            'ISBN_13'=>'0926173846100',
             'orderitem_quantity'=>'2',
         ]);
     }

@@ -21,9 +21,15 @@
             </td>
 
             <td width='500px'>
+                <a href='/orderlist'><img src='/images/orderlist_logo.png'  height='65' width='65'>
+                <h1>Order List</h1></a>
+            </td>
+            
+            <td width='500px'>
                 <a href='/logout'><img src='/images/logout_logo.png'  height='65' width='65'>
                 <h1>Logout</h1></a>
             </td>
+            
         </tr>
 
     </table>

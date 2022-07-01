@@ -19,19 +19,19 @@ class CartsSeeder extends Seeder
         // Carts Seeder Template
         DB::table('carts')->insert([
             'username'=>'admin',
-            'ISBN_13'=>'BS1001',
+            'ISBN_13'=>'0926173846100',
             'book_quantity'=>'2',
         ]);
 
         DB::table('carts')->insert([
             'username'=>'customer',
-            'ISBN_13'=>'BS1001',
+            'ISBN_13'=>'0926173846100',
             'book_quantity'=>'1',
         ]);
 
         DB::table('carts')->insert([
             'username'=>'customer',
-            'ISBN_13'=>'BS1002',
+            'ISBN_13'=>'0926173846101',
             'book_quantity'=>'3',
         ]);
     }
