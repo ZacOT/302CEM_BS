@@ -101,10 +101,10 @@
                             }
                         ?>
 
-                        <li><a href='register'>Register</a></li>
                         
                         <?php 
                         if(Auth::user() == NULL){
+                        echo"  <li><a href='register'>Register</a></li>";
                         echo" <li><a href='login'>Login</a></li> "; }
                         ?>
 
