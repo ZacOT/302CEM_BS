@@ -24,6 +24,7 @@ class OrderController extends Controller
         
         $username = $request->input('username');
         $name = $request->input('name');
+        $grandTotal = $request->input('grandtotal');
         $address = "Filler Address";
         
         //Create Order First
@@ -32,12 +33,11 @@ class OrderController extends Controller
             "username" => $username,
             "name" => $name,
             "address" => $address,
-            "subtotal" => 0,
+            "subtotal" => $grandTotal,
             "status" => 0,
         );
         DB::table('orders')->insert($orderdata);
 
-        $grandTotal = 0;
         $carts = DB::table('carts')->where('username', $username)->get();
         $orderid =  DB::table('orders')->where('name', $name)->latest('order_id')->first();
 
@@ -51,7 +51,7 @@ class OrderController extends Controller
 
             DB::table('orderitem')->insert($data);
 
-            $oldQuantity = DB::table('carts')->where('ISBN_13',[$cart->ISBN_13])->pluck('book_quantity')->first();
+            $oldQuantity = DB::table('books')->where('ISBN_13',[$cart->ISBN_13])->pluck('book_stock')->first();
             $newQuantity = $oldQuantity - ($cart->book_quantity);
 
             DB::table('books')->where('ISBN_13',$cart->ISBN_13)->update(['book_stock'=>$newQuantity]);
@@ -61,10 +61,6 @@ class OrderController extends Controller
             Session::put('totalQuantity', 0);
 
             $books = DB::table('books')->where('ISBN_13', $cart->ISBN_13)->get()->first();
-            $subTotal = $cart->book_quantity * $books->retail_price;
-            $grandTotal += $subTotal; 
-            DB::table('orders')->where('order_id', $orderid->order_id)->update(['subtotal'=>$grandTotal]);
-
 
         }    
         return redirect('/')->with('alert', "Order placed successfully");
