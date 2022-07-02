@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
@@ -98,6 +99,9 @@ Route::get('/orderlist', function () {
     $orderitems = DB::table('orderitem')->get();
     return view('orderlist', compact('books','orders','orderitems'));
 });
+
+Route::post('/updateStatus', [OrderController::class, 'updateStatus'])->name('updateStatus');
+
 // Route for Order Database
 
 Route::post('insertOrder','App\Http\Controllers\OrderController@insert')->name('insertOrder');
@@ -128,3 +132,10 @@ Route::post('/login', [LoginController::class, 'validateLogin']);
 Route::get('/logout', [LogoutController::class, 'logout']);
 
 Route::get('deleteBook','App\Http\Controllers\BookController@deleteBook')->name('deleteBook');
+
+//Route for Profile page
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+Route::post('/updateAddress', [UserController::class, 'updateAddress']);

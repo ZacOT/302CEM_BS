@@ -16,6 +16,7 @@
                 <th style="text-align: left; background-color: coral; width: 10%;">Quantity</th>
                 <th style="text-align: left; background-color: coral; width: 10%;">Subtotal</th>
                 <th style="text-align: left; background-color: coral; width: 10%;">Status</th>
+                <th style="text-align: left; background-color: coral; width: 10%;">Update Status</th>
             </tr>
             @foreach ($orders as $order)
             @php
@@ -60,6 +61,14 @@
                             echo "ERROR";
                         }
                     ?>
+                </td>
+                <td>
+                    <form action="{{route('updateStatus')}}" method="post">
+                        @csrf
+                        <input type="hidden" id="status" name="status" value="{{ $order->status }}">
+                        <input type="hidden" id="orderid" name="orderid" value="{{ $order->order_id }}">
+                        <button type="submit" class='button'>Update Status</button>
+                    </form>
                 </td>
             </tr>
             @endforeach

@@ -72,6 +72,23 @@ class OrderController extends Controller
 
     }
 
+    public function updateStatus(Request $request){
+        
+        $orderid = $request->input('orderid');
+        $status = $request->input('status');
+
+        if ($status == 0){
+            $status = 1;
+        }
+        else if ($status == 1){
+            $status = 0;
+        }
+
+        DB::table('orders')->where('order_id', $orderid)->update(['status' => $status]);
+
+        return redirect('orderlist');
+    }
+
     // remove function
     // remove all from user function
 }
