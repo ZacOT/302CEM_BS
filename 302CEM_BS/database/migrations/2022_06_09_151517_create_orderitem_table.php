@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('orderitem_id');
             $table->integer('order_id');
             $table->string('ISBN_13');
-            $table->integer('orderitem_qty');
+            $table->integer('orderitem_quantity');
         });
     }
 

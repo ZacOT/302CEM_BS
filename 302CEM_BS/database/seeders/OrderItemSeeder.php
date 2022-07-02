@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class OrdersSeeder extends Seeder
+class OrderItemSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,13 +16,10 @@ class OrdersSeeder extends Seeder
      */
     public function run()
     {
-        // Carts Seeder Template
-        DB::table('orders')->insert([
-            'username'=>'customer',
-            'name'=>'customer name',
-            'address'=>'Filler Address',
-            'subtotal'=>'0',
-            'status'=>'1',
+        DB::table('orderitem')->insert([
+            'order_id'=>'1',
+            'ISBN_13'=>'0926173846100',
+            'orderitem_quantity'=>'2',
         ]);
     }
 }

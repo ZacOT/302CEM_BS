@@ -57,17 +57,18 @@
 
 	<div class='checkout'>
 	<div class='total'>
-	<div>
-		<div class='Subtotal'>Sub-Total</div>
-		<div class='items'>@php echo "$totalQuantity"; @endphp items</div>
-	</div>
-	<div class='total-amount'>@php echo "$grandTotal"; @endphp</div>
+			<div>
+				<div class='Subtotal'>Sub-Total</div>
+				<div class='items'>@php echo "$totalQuantity"; @endphp items</div>
+			</div>
+		<div class='total-amount'>@php echo "$grandTotal"; @endphp</div>
 	<div><form action="{{ route('createOrder') }}" method="post">
 		@csrf
-		<input type="hidden" id="username" name="username" value="{{ $username }}">
+		<input type="hidden" id="username" name="username" value="{{ Auth::user()->username; }}">
+		<input type="hidden" id="name" name="name" value="{{ Auth::user()->name; }}">
 		<div><button type="submit" class='button'>Confirm Order</button></div>
 	</form></div>
 	
-</div>
+	</div>
 </body>
 </html> 
