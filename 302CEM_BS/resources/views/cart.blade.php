@@ -16,7 +16,9 @@
 
 
 		@php $grandTotal = 0; @endphp
+		@php $subTotal = 0; @endphp
 		@php $totalQuantity = 0; @endphp
+		@php $shippingFee = 0; @endphp
 
 		@foreach($carts as $cart)
 			@php $books = DB::table('books')->where('ISBN_13', $cart->ISBN_13)->first(); @endphp
@@ -31,8 +33,14 @@
 					<div class='about'>
 							<h1 class='title'>{{ $books->book_title }}</h1>
 							<h3 class='subtitle'>{{ $books->book_description }}</h3>
+							<br><br><br><br><br>
+							<h3 class='subtitle'>Unit Price: {{ $books->retail_price }} $</h3>
 					</div>
+
 					<div class='counter'>
+
+						<!-- Decrease Button -->
+						@if($cart->book_quantity > 1)
 						<form action = {{route("updateCart")}} method ='post' class='form-group' enctype='multipart/form-data'>
 						<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 						<input type="hidden" class="form-control" name="username" value="{{Auth::user()->username}}">
@@ -41,9 +49,14 @@
 						<input type="hidden" class="form-control" name="quantity" value=-1>
 						<button type="submit">-</button>
 						</form>
+						@else
+						<button type="submit" disabled>-</button>
+						@endif
+
 
 						<div class='count'>{{ $cart->book_quantity }}</div>
 
+						@if($cart->book_quantity < $books->book_stock)
 						<form action = {{route("updateCart")}} method ='post' class='form-group' enctype='multipart/form-data'>
 						<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 						<input type="hidden" class="form-control" name="username" value="{{Auth::user()->username}}">
@@ -52,13 +65,16 @@
                     	<input type="hidden" class="form-control" name="quantity" value=1>
 						<button type="submit">+</button>
 						</form>
+						@else
+						<button type="submit" disabled>-</button>
+						@endif
 					</div>
 					<div class='prices'>
-						@php $subTotal = $cart->book_quantity * $books->retail_price; @endphp
-							<!-- Make Amount adjustable -->
-							<div class='amount'>@php echo "$subTotal"; @endphp $</div>
+						<!-- Display Unit Price -->
+						
+						@php $bookTotal = $cart->book_quantity * $books->retail_price; @endphp
+							<div class='amount'>@php echo "$bookTotal"; @endphp $</div>
 							<br/><br/><br/><br/><br/>
-							<!-- Make Remove functional -->
 							<form action = "{{route('deleteCart')}}" method='GET' class='form-group' action='/' enctype='multipart/form-data'>
 							<input type = 'hidden' name = '_token' value = '<?php echo csrf_token(); ?>'>
 							<input type="hidden" class="form-control" name="username" value="{{Auth::user()->username}}">
@@ -69,13 +85,16 @@
 					</div>
 				</div>
 
-				@php $grandTotal += $subTotal; @endphp
+				@php $subTotal += $bookTotal; @endphp
 				@php $totalQuantity += $cart->book_quantity; @endphp
  
 				@endif
 			@endif
 
 		@endforeach
+
+		@php $shippingFee += 3 + (($totalQuantity - 1) * 1); @endphp
+		@php $grandTotal = $subTotal + $shippingFee; @endphp
     
 	<hr>
 	<br><br>
@@ -84,16 +103,20 @@
 	<div class='total'>
 	<div>
 		<div class='Subtotal'>Sub-Total</div>
-		<div class='items'>@php echo "$totalQuantity"; @endphp items</div>
 
 		<?php 
-		Session::put('totalPrice', $grandTotal);
+		Session::put('totalPrice', $subTotal);
 		Session::put('totalQuantity', $totalQuantity);
 		?>
-	</div>
-	<div class='total-amount'>@php echo "$grandTotal"; @endphp $</div>
 
 	</div>
+	<div class='total-amount'>@php echo "$subTotal"; @endphp $</div>
+	</div>
+
+	<br>
+	<div class='items'>@php echo "$totalQuantity"; @endphp items</div>
+	<br>
+	
 	<a href="/order">
 		<div><button class='button'>Checkout</button></div>
 	</a>

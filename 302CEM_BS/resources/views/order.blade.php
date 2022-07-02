@@ -15,7 +15,9 @@
 
 
 		@php $grandTotal = 0; @endphp
+		@php $subTotal = 0; @endphp
 		@php $totalQuantity = 0; @endphp
+		@php $shippingFee = 0; @endphp
 
 		@foreach($carts as $cart)
 
@@ -34,36 +36,67 @@
 						<div class='about'>
 								<h1 class='title'>{{ $book->book_title }}</h1>
 								<h3 class='subtitle'>{{ $book->book_description }}</h3>
+								<br><br><br><br><br>
+								<h3 class='subtitle'>Unit Price: {{ $book->retail_price }} $</h3>
 						</div>
 						<div class='counter'>
 								<div class='count'>{{ $curqty }}</div>
 						</div>
 						<div class='prices'>
-							@php $subTotal = $curqty * $book->retail_price; @endphp
-								<div class='amount'>@php echo "$subTotal"; @endphp $</div>
+							@php $bookTotal = $curqty * $book->retail_price; @endphp
+								<div class='amount'>@php echo "$bookTotal"; @endphp $</div>
 								<br/><br/><br/><br/><br/>
 						</div>
 					</div>
 
-					@php $grandTotal += $subTotal; @endphp
+					@php $subTotal += $bookTotal; @endphp
 					@php $totalQuantity += $cart->book_quantity; @endphp
 				@endif
 
 			@endforeach
 			@endforeach
+
+			@php $shippingFee += 3 + (($totalQuantity - 1) * 1); @endphp
+			@php $grandTotal = $subTotal + $shippingFee; @endphp
     
 	<hr>
 	<br><br>
+		<center>
+			<h1 class='title'>Shipping Details</h1>
+			<?php
+			if(Auth::user()){
+                    $address = Auth::user()->address;
+					echo"
+					<textarea id='address' rows='5' cols='40'>$address</textarea>
+					";
+			}
+			?>
+		</center>
 
 	<div class='checkout'>
 	<div class='total'>
 	<div>
 		<div class='Subtotal'>Sub-Total</div>
-		<div class='items'>@php echo "$totalQuantity"; @endphp items</div>
+		</div>
+	<div class='total-amount'>@php echo "$subTotal"; @endphp $</div>
 	</div>
+
+	<div class='total'>
+	<div class='Subtotal'>Shipping Fee</div>
+	<div class='total-amount'>@php echo "$shippingFee"; @endphp $</div>
+	</div>
+
+	<br>
+	<div class='items'>@php echo "$totalQuantity"; @endphp items</div>
+	<br>
+
+	<div class='total'>
+	<div class='Subtotal'>Grand Total</div>
 	<div class='total-amount'>@php echo "$grandTotal"; @endphp $</div>
+	</div>
+
 	<div><form action="{{ route('createOrder') }}" method="post">
-		@csrf
+		
 		<input type="hidden" id="username" name="username" value="{{ $username }}">
 		<div><button type="submit" class='button'>Confirm Order</button></div>
 	</form></div>
