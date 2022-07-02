@@ -46,4 +46,15 @@ class UserController extends Controller
         return redirect()-> route('login');
 
         }
+
+        public function updateAddress(Request $request){
+
+            $this->validate($request, ['address' => 'required|max:255']);
+            
+            $address = $request->input('address');
+
+            DB::table('users')->where('username', Auth::user()->username)->update(['address' => $address]);
+
+            return view('profile');
+        }
 }

@@ -13,29 +13,40 @@ class OrderController extends Controller
         return view('welcome',compact('orders'));
     }
   
+    public function viewOrder(Request $request){
+        $orders = DB::table('orders')->where('order_id', $request->input('orderid'))->get();
+        $orderitems = DB::table('orderitem')->get();
+        $books = DB::table('books')->get();
+        return view('viewOrder', compact('orders', 'orderitems', 'books'));
+    }
 
     public function insertOrder(Request $request){
-
+        
         $username = $request->input('username');
+        $name = $request->input('name');
+        $address = "Filler Address";
         
         //Create Order First
 
         $orderdata=array(
             "username" => $username,
+            "name" => $name,
+            "address" => $address,
             "subtotal" => 0,
+            "status" => 0,
         );
         DB::table('orders')->insert($orderdata);
 
         $grandTotal = 0;
         $carts = DB::table('carts')->where('username', $username)->get();
-        $orderid =  DB::table('orders')->where('username', $username)->latest('order_id')->first();
+        $orderid =  DB::table('orders')->where('name', $name)->latest('order_id')->first();
 
         foreach ($carts as $cart){
 
             $data=array(
                 "order_id"=>intval($orderid->order_id),
                 "ISBN_13"=>$cart->ISBN_13,
-                "orderitem_qty"=>$cart->book_quantity,
+                "orderitem_quantity"=>$cart->book_quantity,
             );
 
             DB::table('orderitem')->insert($data);
@@ -59,6 +70,23 @@ class OrderController extends Controller
         return redirect('/')->with('alert', "Order placed successfully");
 
 
+    }
+
+    public function updateStatus(Request $request){
+        
+        $orderid = $request->input('orderid');
+        $status = $request->input('status');
+
+        if ($status == 0){
+            $status = 1;
+        }
+        else if ($status == 1){
+            $status = 0;
+        }
+
+        DB::table('orders')->where('order_id', $orderid)->update(['status' => $status]);
+
+        return redirect('orderlist');
     }
 
     // remove function

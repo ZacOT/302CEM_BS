@@ -96,11 +96,11 @@
 	</div>
 
 	<div><form action="{{ route('createOrder') }}" method="post">
-		
 		<input type="hidden" id="username" name="username" value="{{ $username }}">
+		<input type="hidden" id="name" name="name" value="{{ Auth::user()->name; }}">
 		<div><button type="submit" class='button'>Confirm Order</button></div>
 	</form></div>
 	
-</div>
+	</div>
 </body>
 </html> 

@@ -85,7 +85,13 @@
                             }
                         ?>
 
-                        <li><a href=''>Purchase History</a></li>
+                        <?php 
+                        if(Auth::user() != NULL){
+                            $role = Auth::user()->role;
+                            if($role == 1){
+                                echo" <li><a href='/orderhistory'>Purchase History</a></li> "; }
+                            }
+                        ?>
 
                         <?php 
                         if(Auth::user() != NULL){

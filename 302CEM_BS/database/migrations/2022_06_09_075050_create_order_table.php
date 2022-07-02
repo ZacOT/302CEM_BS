@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('order_id');
             $table->string('username');
+            $table->string('name');
             $table->double('subtotal');
+            $table->string('address');
+            $table->Integer('status');
             $table->timestamps();
         });
     }
