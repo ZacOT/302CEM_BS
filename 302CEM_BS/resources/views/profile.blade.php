@@ -20,26 +20,11 @@
         </tr>
 
         <tr>
-            <?php
-                $address_change = 0;
-                $address = Auth::user()->address;
-
-                if ($address_change = 0){
-                    echo "<td style='text-align: center;'>Address: $address</td>";
-                }
-                else if ($address_change = 1){
-                    echo "
-                    <form action='route('updateAddress') method='post'>
-                        <td style='text-align: center;'>
-                            Address: $address
-                        </td>
-                    </form>
-                    ";
-                }
-            ?>
+            <td style="text-align: center;">Address: {{ Auth::user()->address }}</td>
         </tr>
+
         <tr>
-            <
+            <td style='text-align: center;'><a href="{{ route('editAddress') }}"><button type='submit' class='button' name='change_email'>Change Email</button></a></td>";
         </tr>
 
         </table>

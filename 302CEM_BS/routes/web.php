@@ -136,6 +136,18 @@ Route::get('deleteBook','App\Http\Controllers\BookController@deleteBook')->name(
 //Route for Profile page
 Route::get('/profile', function () {
     return view('profile');
-});
+})->name('profile');
 
-Route::post('/updateAddress', [UserController::class, 'updateAddress']);
+Route::get('/editAddress', function () {
+    return view('editAddress');
+})->name('editAddress');
+
+Route::post('/updateAddress', [UserController::class, 'updateAddress'])->name('updateAddress');
+
+Route::get('/token', function (Request $request) {
+    $token = $request->session()->token();
+ 
+    $token = csrf_token();
+ 
+    // ...
+});

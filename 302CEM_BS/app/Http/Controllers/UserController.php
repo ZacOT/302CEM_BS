@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -47,14 +48,19 @@ class UserController extends Controller
 
         }
 
+        public function changeAddress(){
+
+            $change_address = 1;
+
+            return view('profile')->with('address_change', $change_address);
+        }
+
         public function updateAddress(Request $request){
 
             $this->validate($request, ['address' => 'required|max:255']);
-            
             $address = $request->input('address');
-
             DB::table('users')->where('username', Auth::user()->username)->update(['address' => $address]);
 
-            return view('profile');
+            return redirect()->route('profile');
         }
 }
