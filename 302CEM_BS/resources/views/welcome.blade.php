@@ -8,11 +8,13 @@
         <h1 style="text-align: center;">Books</h1>
         <br/>
 
-        <div class="wrapper-bookrow">
-        
-                @foreach($books as $book)
+        <!-- <div class="wrapper-bookrow"> -->
+          <?php $counter = 0; ?>
+          <div class='wrapper-bookrow'> 
 
-                <div style="border-style:solid; height: min-content; padding-top:20px;">
+                @foreach($books as $book)
+                   
+                <div class='wrapper-book'>
                     <center>
                     <img src=images/{{$book->book_cover_img}} height='250' width='150'></a>
                     <h4> {{ $book->book_title }} </h4>         
@@ -21,7 +23,8 @@
                   if(Auth::user()){
                     $role = Auth::user()->role;
                     
-                      if($role == 1){                        
+                      if($role == 1){  
+                        if($book->book_stock > 0){                     
                         echo" <h4>Retail Price: $book->retail_price $ </h4> "; ?>
 
                         <form action = {{route("insertCart")}} method ='post' class='form-group' enctype='multipart/form-data' align='center'>
@@ -33,8 +36,13 @@
     
                         <button type="submit">Add To Cart</button>
                         </form>
+                        <?php }else{
+                          echo" <h4>Retail Price: $book->retail_price $ </h4> "; 
+                          echo"<button type='submit' disabled>Out of Stock</button>";
+                        } ?>
                       <?php
                         }
+                        
 
                       if($role == 0){
                         echo" <h4>ISBN_13: $book->ISBN_13 </h4> ";
@@ -48,22 +56,26 @@
                         <?php echo"
                         <button type='submit'>Delete Book</button>
                         </form>
+                        <br />
                       ";
                       }
+                    }
 
-                        }     
-    
+                      
+                      
                         ?>
 
                     </center>
                     </div>
+                <?php 
 
-
+                $counter++; ?>
                 @endforeach
+                </div>
 
         
                 
-        </div>
+        <!-- </div> -->
 </html>
 
 @include('footer')

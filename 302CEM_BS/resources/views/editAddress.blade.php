@@ -5,7 +5,7 @@
     <table style="width: 15%; border: 1px solid; margin-left: auto; margin-right: auto;">
     <form action="{{ route('updateAddress') }}" method="POST" id="updateAddress">
     @csrf
-        <tr style="outline: thin"><th style="font-size: 30px;">UPDATE ADDRESS</th></tr>
+        <tr style="outline: thin"><th style="font-size: 20px;">UPDATE ADDRESS</th></tr>
         <tr><td>@error('address'){{ $message }}@enderror</td></tr>
         <tr><td><b></br></br>CURRENT ADDRESS:</b></td></tr>
         <tr><td>{{ Auth::user()->address; }}</td></tr>

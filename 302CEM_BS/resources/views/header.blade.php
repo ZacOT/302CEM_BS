@@ -67,8 +67,8 @@
 
         <center>
         <div class="wrapper row1">
-            <header id="header" class="clear">
-                <div id="hgroup">
+            <header id="header1" class="clear" >
+                 <div id="hgroup">
                 <nav>
                         
                         <ul>
@@ -77,6 +77,9 @@
                             $role = Auth::user()->role;
                             if($role == 0){
                                 echo" <li><a href='/'>Stock Level</a></li> "; 
+                                echo" <li><a href='addBook'>Add Stock</a></li> "; 
+                                echo" <li><a href='orderlist'>Order List</a></li> "; 
+
                             }else{
                                 echo" <li><a href='/'>Home</a></li> ";
                             }

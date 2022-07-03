@@ -23,7 +23,7 @@ div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:left;}
 
 /*----------------------------------------------Header-------------------------------------*/
 
-#header{padding: 20px 10px 10px 10px ;}
+/* #header{padding: 20px 10px 10px 10px ;} */
 #header #hgroup{float:left; margin:0 0 20px 0; margin-left:0%; width: 82%; height: 90%;}
 #header #hgroup h1, #header #hgroup h2{font-weight:normal; text-transform:none;}
 
@@ -36,12 +36,18 @@ div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:left;}
 
 .wrapper-bookrow{
     display: grid;
-    grid-template-columns: repeat(5, 10fr);
+    grid-template-columns: repeat(5, 20fr); 
     gap: 90px;
     margin-left: 200px;    
     margin-right: 150px;
-    grid-auto-rows: 300px;
     justify-content: center;
+  }
+
+  .wrapper-book{
+    border-style: solid;
+    height:min-content; 
+    padding-top:20px;
+    padding-bottom:10px;   
   }
 
   .welcomeMsg {
@@ -73,3 +79,19 @@ div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:left;}
       vertical-align: top;
       margin-left: -10px; 
   }
+
+  #header1 {
+    padding: 12px;
+    text-align: center;
+    background: #F09090;
+    color: #e43939;
+    font-size: 16px;
+
+  }
+
+#header1 #hgroup h1, #header #hgroup h2{font-weight:normal; text-transform:none;}
+#header1 nav ul{padding:0 100px;}
+#header1 nav li{display:inline; margin-right:30px; text-transform:uppercase;}
+#header1 nav li.last{margin-right:0;}
+#header1 nav li a{color:black; background-color:#F09090;} /*Header color for the text links*/
+#header1 nav li a:hover{color:#e43939; background-color:#F09090;}

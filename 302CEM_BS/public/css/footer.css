@@ -7,9 +7,12 @@
     background-color: #de4e4e;
     color: white;
     display: block;
-    text-align: center;}
+    text-align: center;
+}
+    
 html {
         position: relative;
+        padding-bottom: 10%;
         min-height: 100%;
         margin-bottom: 61px;
     }
