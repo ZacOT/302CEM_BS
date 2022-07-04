@@ -25,7 +25,8 @@ class OrderController extends Controller
         $username = $request->input('username');
         $name = $request->input('name');
         $grandTotal = $request->input('grandtotal');
-        $address = "Filler Address";
+        $address = $request->input('address');
+        //$address = "Filler Address";
         
         //Create Order First
 

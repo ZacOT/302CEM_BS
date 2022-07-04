@@ -42,10 +42,10 @@
                 <td>
                     <?php
                         if ($order->status == 0){
-                            echo "<text style='color: red;'>Incomplete</text>";
+                            echo "<p style='color:red;'>Incomplete</p>";
                         } 
                         else if ($order->status == 1){
-                            echo "<text style='color: green;'>Completed</text>";
+                            echo "<p style='color:green;'>Completed</p>";
                         }
                         else{
                             echo "ERROR";

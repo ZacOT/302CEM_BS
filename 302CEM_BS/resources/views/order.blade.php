@@ -100,6 +100,7 @@
 		<input type="hidden" id="username" name="username" value="{{ $username }}">
 		<input type="hidden" id="name" name="name" value="{{ Auth::user()->name; }}">
 		<input type="hidden" id="grandtotal" name="grandtotal" value="{{ $grandTotal }}">
+		<input type="hidden" id="address" name="address" value="{{ $address }}">
 		<div><button type="submit" class='button'>Confirm Order</button></div>
 	</form></div>
 	

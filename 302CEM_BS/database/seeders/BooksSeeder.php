@@ -77,7 +77,7 @@ class BooksSeeder extends Seeder
             ]);
 
             DB::table('books')->insert([
-            'book_title'=>'Explorations of a Cosmic Soul',
+            'book_title'=>'Explorations of a Cosmic',
             'book_author'=>'Allie Michelle',
             'publication_date'=>'2020-02-20',
             'ISBN_13'=>'9781566199095',
@@ -100,16 +100,77 @@ class BooksSeeder extends Seeder
             'book_stock'=>'20'
             ]);
 
-        /* DB::table('books')->insert([
-            'book_title'=>'',
-            'book_author'=>'',
-            'publication_date'=>'',
-            'ISBN_13'=>'',
-            'book_description'=>'',
-            'book_cover_img'=>'',
-            'trade_price'=>'',
-            'retail_price'=>'',
-            'book_stock'=>''
-            ]);       */
+         DB::table('books')->insert([
+            'book_title'=>'Sparks of Phoenix',
+            'book_author'=>'Najwa Zebian',
+            'publication_date'=>'2018-04-30',
+            'ISBN_13'=>'9781566199097',
+            'book_description'=>'Ghost part that wait for you to explore',
+            'book_cover_img'=>'book8.jpeg',
+            'trade_price'=>'45',
+            'retail_price'=>'70',
+            'book_stock'=>'20'
+            ]);       
+
+         DB::table('books')->insert([
+            'book_title'=>'The Nectar of Pain',
+            'book_author'=>'Najwa Zebian',
+            'publication_date'=>'2018-06-08',
+            'ISBN_13'=>'9781566199098',
+            'book_description'=>'The Nectar of Pain is a collection of prose that the pain of love and loss',
+            'book_cover_img'=>'book9.webp',
+            'trade_price'=>'45',
+            'retail_price'=>'68',
+            'book_stock'=>'20'
+            ]);   
+            
+         DB::table('books')->insert([
+            'book_title'=>'Violet Bent Backwards',
+            'book_author'=>'Lana Del Rey',
+            'publication_date'=>'2018-03-10',
+            'ISBN_13'=>'9781566199099',
+            'book_description'=>'Lana breathtaking first book solidifies her further',
+            'book_cover_img'=>'book10.jpeg',
+            'trade_price'=>'35',
+            'retail_price'=>'56',
+            'book_stock'=>'20'
+            ]);   
+
+         DB::table('books')->insert([
+            'book_title'=>'Poemsia',
+            'book_author'=>'Lang Leav',
+            'publication_date'=>'2017-08-30',
+            'ISBN_13'=>'9781566199100',
+            'book_description'=>'This book was such a light read and full of good vibes',
+            'book_cover_img'=>'book11.jpeg',
+            'trade_price'=>'30',
+            'retail_price'=>'60',
+            'book_stock'=>'20'
+            ]);   
+
+         DB::table('books')->insert([
+            'book_title'=>'The Sun and Flower',
+            'book_author'=>'Rupi Kaur',
+            'publication_date'=>'2015-08-30',
+            'ISBN_13'=>'9781566199101',
+            'book_description'=>'The number one sunday times bestseller',
+            'book_cover_img'=>'book12.webp',
+            'trade_price'=>'40',
+            'retail_price'=>'57',
+            'book_stock'=>'20'
+            ]);   
+
+         DB::table('books')->insert([
+            'book_title'=>'Memories',
+            'book_author'=>'Lang Leav',
+            'publication_date'=>'2015-09-07',
+            'ISBN_13'=>'9781566199102',
+            'book_description'=>'Lang Leav presents a gorgeous hardcover gift book featuring',
+            'book_cover_img'=>'book13.webp',
+            'trade_price'=>'88',
+            'retail_price'=>'90',
+            'book_stock'=>'20'
+            ]);               
+            
     }
 }

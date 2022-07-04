@@ -24,7 +24,7 @@
         </tr>
 
         <tr>
-            <td style='text-align: center;'><a href="{{ route('editAddress') }}"><button type='submit' class='button' name='change_email'>Change Email</button></a></td>";
+            <td style='text-align: center;'><a href="{{ route('editAddress') }}"><button type='submit' class='button' name='change_email'>Update Address</button></a></td>";
         </tr>
 
         </table>
