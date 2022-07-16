@@ -1,0 +1,24 @@
+<?php
+
+namespace Tests\Unit;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
+
+    class OrderListTest extends TestCase{
+
+        /**
+        * A basic unit test example.
+        *
+        * @return void
+        */
+
+        public function test_orderlist_render(){
+
+            $response = $this->get('/orderlist')->assertSee('Order History');
+            $response->assertStatus(200);
+
+        }
+}
+?>
